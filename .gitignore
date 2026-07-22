@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Environment files (contain secrets/config, keep only .example files tracked)
+system.env
+user.env
+.env
+.env.*
+
+# Test outputs (generated screenshots, logs, reports)
+test-results/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/

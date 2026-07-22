@@ -1,0 +1,13 @@
+{
+  "name": "ras-testing-shared-runner",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "workflow:run": "node ras-workflows/index.mjs",
+    "dashboard:generate": "node generate-dashboard.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.61.1",
+    "xlsx": "^0.18.5"
+  }
+}
