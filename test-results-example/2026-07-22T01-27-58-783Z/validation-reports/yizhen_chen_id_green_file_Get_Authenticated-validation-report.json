@@ -1,0 +1,107 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.773137Z",
+    "testCaseId": "yizhen_chen_id_green_file_Get_Authenticated",
+    "workbookPath": "CTDC/CTDC-Test-Execution.xlsx",
+    "runFolder": "test-results/2026-07-22T01-27-58-783Z",
+    "executionLogPath": "test-results/2026-07-22T01-27-58-783Z/workflow-logs/yizhen_chen_id_green_file_Get_Authenticated.json",
+    "executionTextLogPath": "test-results/2026-07-22T01-27-58-783Z/workflow-logs/yizhen_chen_id_green_file_Get_Authenticated.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: The Passport is successfully retrieved and valid.\n\nFail: Any step in the process fails, preventing the Passport from being retrieved.",
+    "parsed": {
+      "pass": [
+        "The Passport is successfully retrieved and valid."
+      ],
+      "fail": [
+        "Any step in the process fails, preventing the Passport from being retrieved."
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "PASS",
+    "score": 100,
+    "evidenceCount": 5,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "PASS",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "stepId": 2,
+        "stepName": "exchange-authorization-code",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "stepId": 3,
+        "stepName": "userinfo",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "stepId": 4,
+        "stepName": "decode-passport",
+        "status": "PASS",
+        "evidence": {
+          "passportTokenCount": 1,
+          "visaCount": 2
+        }
+      },
+      {
+        "stepId": 5,
+        "stepName": "validate-visas",
+        "status": "PASS",
+        "evidence": {
+          "validatedVisas": 2
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 11,
+      "actualCount": 11,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-13_yizhen_chen_id_green_file_Get_Authenticated_00-ras-login-page.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-15_yizhen_chen_id_green_file_Get_Authenticated_00-idme-button-clicked.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-24_yizhen_chen_id_green_file_Get_Authenticated_01-email-entered.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-26_yizhen_chen_id_green_file_Get_Authenticated_02-password-page.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-29_yizhen_chen_id_green_file_Get_Authenticated_03-password-submitted.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-30_yizhen_chen_id_green_file_Get_Authenticated_04-complete-signin-page.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-34_yizhen_chen_id_green_file_Get_Authenticated_05-mfa-code-page.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-38_yizhen_chen_id_green_file_Get_Authenticated_06-mfa-code-submitted.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-40_yizhen_chen_id_green_file_Get_Authenticated_10-before-authorization.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-41_yizhen_chen_id_green_file_Get_Authenticated_11-authorization-page.png",
+        "test-results/2026-07-22T01-27-58-783Z/screenshots/2026-07-22T01-28-43_yizhen_chen_id_green_file_Get_Authenticated_12-after-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "All steps (auth, tokens, userinfo, decode-passport, validate-visas) completed successfully; 2 visas validated."
+    ]
+  },
+  "summary": {
+    "caseId": "yizhen.chen_id_green_file",
+    "testName": "Get Authenticated",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T01-27-58-783Z/workflow-logs/yizhen_chen_id_green_file_Get_Authenticated.json",
+      "text_log": "test-results/2026-07-22T01-27-58-783Z/workflow-logs/yizhen_chen_id_green_file_Get_Authenticated.log",
+      "screenshots_dir": "test-results/2026-07-22T01-27-58-783Z/screenshots"
+    }
+  }
+}

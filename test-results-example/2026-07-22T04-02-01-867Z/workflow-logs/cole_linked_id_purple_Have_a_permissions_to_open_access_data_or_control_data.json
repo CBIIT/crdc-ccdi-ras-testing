@@ -1,0 +1,63 @@
+{
+  "summary": {
+    "status": "failed",
+    "failedStepCount": 0,
+    "executedSteps": [],
+    "error": "page.waitForRequest: Target page, context or browser has been closed"
+  },
+  "settingsFiles": {
+    "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+    "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/cole_linked_id_purple.env"
+  },
+  "selectedSteps": [
+    1,
+    2,
+    3,
+    4,
+    6
+  ],
+  "exportedAt": "2026-07-22T04:03:18.368Z",
+  "context": {},
+  "records": [
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:02:01.868Z",
+      "message": "Workflow run started",
+      "details": {
+        "testCaseName": "cole_linked_id_purple_Have_a_permissions_to_open_access_data_or_control_data",
+        "selectedSteps": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "runDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T04-02-01-867Z",
+        "outputDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T04-02-01-867Z/workflow-logs",
+        "screenshotDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T04-02-01-867Z/screenshots",
+        "settingsFiles": {
+          "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+          "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/cole_linked_id_purple.env"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:02:01.868Z",
+      "message": "Step 1 started: authorize-login",
+      "details": {
+        "contextKeys": []
+      }
+    },
+    {
+      "level": "error",
+      "timestamp": "2026-07-22T04:03:18.366Z",
+      "message": "Workflow run failed",
+      "details": {
+        "message": "page.waitForRequest: Target page, context or browser has been closed",
+        "stack": "page.waitForRequest: Target page, context or browser has been closed\n    at Object.stepAuthorize (/Users/cheny39/Documents/RAS-Testing/ras-workflows/steps.mjs:266:40)\n    at async main (/Users/cheny39/Documents/RAS-Testing/ras-workflows/index.mjs:61:22)",
+        "contextKeys": []
+      }
+    }
+  ]
+}

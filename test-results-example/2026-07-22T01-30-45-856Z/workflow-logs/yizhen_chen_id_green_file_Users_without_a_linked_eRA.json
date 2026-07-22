@@ -1,0 +1,70 @@
+{
+  "summary": {
+    "status": "passed",
+    "executedSteps": [
+      {
+        "id": 1,
+        "name": "authorize-login",
+        "durationMs": 43016,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      }
+    ]
+  },
+  "settingsFiles": {
+    "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+    "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/yizhen.chen_id_purple_file.env"
+  },
+  "selectedSteps": [
+    1
+  ],
+  "exportedAt": "2026-07-22T01:31:28.874Z",
+  "context": {
+    "authorizationCode": "338d...e29a",
+    "authorizationCallbackUrl": "http...be94"
+  },
+  "records": [
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:30:45.857Z",
+      "message": "Workflow run started",
+      "details": {
+        "testCaseName": "yizhen.chen_id_green_file_Users_without_a_linked_eRA",
+        "selectedSteps": [
+          1
+        ],
+        "runDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T01-30-45-856Z",
+        "outputDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T01-30-45-856Z/workflow-logs",
+        "screenshotDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T01-30-45-856Z/screenshots",
+        "settingsFiles": {
+          "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+          "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/yizhen.chen_id_purple_file.env"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:30:45.857Z",
+      "message": "Step 1 started: authorize-login",
+      "details": {
+        "contextKeys": []
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:31:28.873Z",
+      "message": "Step 1 finished: authorize-login",
+      "details": {
+        "durationMs": 43016,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      }
+    }
+  ]
+}

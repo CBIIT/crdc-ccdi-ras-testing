@@ -1,0 +1,99 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.823426Z",
+    "testCaseId": "yizhen_chen_id_green_file_receive_the_RAS_Passport",
+    "workbookPath": "CTDC/CTDC-Test-Execution.xlsx",
+    "runFolder": "test-results/2026-07-22T01-32-44-095Z",
+    "executionLogPath": "test-results/2026-07-22T01-32-44-095Z/workflow-logs/yizhen_chen_id_green_file_receive_the_RAS_Passport.json",
+    "executionTextLogPath": "test-results/2026-07-22T01-32-44-095Z/workflow-logs/yizhen_chen_id_green_file_receive_the_RAS_Passport.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: ga4gh_passport_v1 claim is present and parsable in userinfo.\nFail: ga4gh_passport_v1 claim is missing or malformed",
+    "parsed": {
+      "pass": [
+        "ga4gh_passport_v1 claim is present and parsable in userinfo."
+      ],
+      "fail": [
+        "ga4gh_passport_v1 claim is missing or malformed"
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "PASS",
+    "score": 100,
+    "evidenceCount": 4,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "PASS",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "stepId": 2,
+        "stepName": "exchange-authorization-code",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "stepId": 3,
+        "stepName": "userinfo",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "stepId": 4,
+        "stepName": "decode-passport",
+        "status": "PASS",
+        "evidence": {
+          "passportTokenCount": 1,
+          "visaCount": 2
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 11,
+      "actualCount": 11,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-32-59_yizhen_chen_id_green_file_receive_the_RAS_Passport_00-ras-login-page.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-02_yizhen_chen_id_green_file_receive_the_RAS_Passport_00-idme-button-clicked.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-20_yizhen_chen_id_green_file_receive_the_RAS_Passport_01-email-entered.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-23_yizhen_chen_id_green_file_receive_the_RAS_Passport_02-password-page.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-26_yizhen_chen_id_green_file_receive_the_RAS_Passport_03-password-submitted.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-27_yizhen_chen_id_green_file_receive_the_RAS_Passport_04-complete-signin-page.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-31_yizhen_chen_id_green_file_receive_the_RAS_Passport_05-mfa-code-page.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-34_yizhen_chen_id_green_file_receive_the_RAS_Passport_06-mfa-code-submitted.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-36_yizhen_chen_id_green_file_receive_the_RAS_Passport_10-before-authorization.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-37_yizhen_chen_id_green_file_receive_the_RAS_Passport_11-authorization-page.png",
+        "test-results/2026-07-22T01-32-44-095Z/screenshots/2026-07-22T01-33-40_yizhen_chen_id_green_file_receive_the_RAS_Passport_12-after-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "decode-passport succeeded with passportTokenCount=1, visaCount=2 - claim present and parsable."
+    ]
+  },
+  "summary": {
+    "caseId": "yizhen.chen_id_green_file",
+    "testName": "receive the RAS Passport",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T01-32-44-095Z/workflow-logs/yizhen_chen_id_green_file_receive_the_RAS_Passport.json",
+      "text_log": "test-results/2026-07-22T01-32-44-095Z/workflow-logs/yizhen_chen_id_green_file_receive_the_RAS_Passport.log",
+      "screenshots_dir": "test-results/2026-07-22T01-32-44-095Z/screenshots"
+    }
+  }
+}

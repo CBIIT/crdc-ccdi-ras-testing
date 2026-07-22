@@ -1,0 +1,108 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.944704Z",
+    "testCaseId": "hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data",
+    "workbookPath": "CTDC/CTDC-Test-Execution-3.xlsx",
+    "runFolder": "test-results/2026-07-22T04-04-43-032Z",
+    "executionLogPath": "test-results/2026-07-22T04-04-43-032Z/workflow-logs/hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.json",
+    "executionTextLogPath": "test-results/2026-07-22T04-04-43-032Z/workflow-logs/hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: user can not get authenticated. \nFail: user get authenticated",
+    "parsed": {
+      "pass": [
+        "user can not get authenticated."
+      ],
+      "fail": [
+        "user get authenticated"
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "FAIL",
+    "score": 0,
+    "evidenceCount": 5,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "FAIL",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "stepId": 2,
+        "stepName": "exchange-authorization-code",
+        "status": "FAIL",
+        "evidence": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "stepId": 3,
+        "stepName": "userinfo",
+        "status": "FAIL",
+        "evidence": {
+          "status": 200,
+          "subject": "yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "stepId": 4,
+        "stepName": "decode-passport",
+        "status": "FAIL",
+        "evidence": {
+          "passportTokenCount": 1,
+          "visaCount": 2
+        }
+      },
+      {
+        "stepId": 6,
+        "stepName": "request-drs-access",
+        "status": "FAIL",
+        "evidence": {
+          "status": 200,
+          "hasSignedUrl": true
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 11,
+      "actualCount": 11,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-04-50_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_00-ras-login-page.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-04-52_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_00-idme-button-clicked.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-04-56_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_01-email-entered.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-04-59_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_02-password-page.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-05-02_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_03-password-submitted.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-05-03_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_04-complete-signin-page.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-05-07_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_05-mfa-code-page.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-05-10_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_06-mfa-code-submitted.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-05-12_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_10-before-authorization.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-05-13_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_11-authorization-page.png",
+        "test-results/2026-07-22T04-04-43-032Z/screenshots/2026-07-22T04-05-15_hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_12-after-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "AMBIGUITY FLAG: this row's Validate text is the inverse of every other row in this workbook (expects the user to FAIL authentication), while its TestName/Test Steps are identical to the positive-access rows. Execution shows the user WAS successfully authenticated and WAS granted DRS access (HTTP 200, signed URL) - per the literal Validate text as written this is a FAIL. Recommend the user confirm whether the Validate column for this row was copy-paste corrupted."
+    ]
+  },
+  "summary": {
+    "caseId": "hu_linked_id_green_file",
+    "testName": "Have a permissions to open access data  or control data",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T04-04-43-032Z/workflow-logs/hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.json",
+      "text_log": "test-results/2026-07-22T04-04-43-032Z/workflow-logs/hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.log",
+      "screenshots_dir": "test-results/2026-07-22T04-04-43-032Z/screenshots"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.811485Z",
+    "testCaseId": "yizhen_chen_id_green_file_Users_without_a_linked_eRA",
+    "workbookPath": "CTDC/CTDC-Test-Execution.xlsx",
+    "runFolder": "test-results/2026-07-22T01-30-45-856Z",
+    "executionLogPath": "test-results/2026-07-22T01-30-45-856Z/workflow-logs/yizhen_chen_id_green_file_Users_without_a_linked_eRA.json",
+    "executionTextLogPath": "test-results/2026-07-22T01-30-45-856Z/workflow-logs/yizhen_chen_id_green_file_Users_without_a_linked_eRA.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: User is prompted to link eRA Page\n\nFail: User is not prompted to link accounts or authentication completes without linkage",
+    "parsed": {
+      "pass": [
+        "User is prompted to link eRA Page"
+      ],
+      "fail": [
+        "User is not prompted to link accounts or authentication completes without linkage"
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "FAIL",
+    "score": 0,
+    "evidenceCount": 1,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "FAIL",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 11,
+      "actualCount": 11,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-30-53_yizhen_chen_id_green_file_Users_without_a_linked_eRA_00-ras-login-page.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-30-55_yizhen_chen_id_green_file_Users_without_a_linked_eRA_00-idme-button-clicked.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-31-04_yizhen_chen_id_green_file_Users_without_a_linked_eRA_01-email-entered.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-31-06_yizhen_chen_id_green_file_Users_without_a_linked_eRA_02-password-page.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-31-09_yizhen_chen_id_green_file_Users_without_a_linked_eRA_03-password-submitted.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-31-10_yizhen_chen_id_green_file_Users_without_a_linked_eRA_04-complete-signin-page.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-31-14_yizhen_chen_id_green_file_Users_without_a_linked_eRA_05-mfa-code-page.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-31-18_yizhen_chen_id_green_file_Users_without_a_linked_eRA_06-mfa-code-submitted.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-31-20_yizhen_chen_id_green_file_Users_without_a_linked_eRA_10-before-authorization.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-31-21_yizhen_chen_id_green_file_Users_without_a_linked_eRA_11-authorization-page.png",
+        "test-results/2026-07-22T01-30-45-856Z/screenshots/2026-07-22T01-31-23_yizhen_chen_id_green_file_Users_without_a_linked_eRA_12-after-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "Visual inspection of screenshots 11/12 shows the standard id.me consent screen followed directly by a successful OAuth callback (capturedCode=true) - no eRA/dbGaP linking prompt was ever shown. Authentication completed without linkage, matching the explicit Fail condition."
+    ]
+  },
+  "summary": {
+    "caseId": "yizhen.chen_id_green_file",
+    "testName": "Users without a linked eRA",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T01-30-45-856Z/workflow-logs/yizhen_chen_id_green_file_Users_without_a_linked_eRA.json",
+      "text_log": "test-results/2026-07-22T01-30-45-856Z/workflow-logs/yizhen_chen_id_green_file_Users_without_a_linked_eRA.log",
+      "screenshots_dir": "test-results/2026-07-22T01-30-45-856Z/screenshots"
+    }
+  }
+}

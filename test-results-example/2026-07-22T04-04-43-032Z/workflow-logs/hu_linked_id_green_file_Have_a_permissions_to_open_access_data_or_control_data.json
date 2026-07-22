@@ -1,0 +1,415 @@
+{
+  "summary": {
+    "status": "passed",
+    "executedSteps": [
+      {
+        "id": 1,
+        "name": "authorize-login",
+        "durationMs": 60998,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "exchange-authorization-code",
+        "durationMs": 173,
+        "result": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "userinfo",
+        "durationMs": 378,
+        "result": {
+          "status": 200,
+          "subject": "yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "decode-passport",
+        "durationMs": 7,
+        "result": {
+          "passportTokenCount": 1,
+          "visaCount": 2
+        }
+      },
+      {
+        "id": 6,
+        "name": "request-drs-access",
+        "durationMs": 3905,
+        "result": {
+          "status": 200,
+          "hasSignedUrl": true
+        }
+      }
+    ]
+  },
+  "settingsFiles": {
+    "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+    "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/hu_linked_id_green_file.env"
+  },
+  "selectedSteps": [
+    1,
+    2,
+    3,
+    4,
+    6
+  ],
+  "exportedAt": "2026-07-22T04:05:48.496Z",
+  "context": {
+    "authorizationCode": "b16d...0767",
+    "authorizationCallbackUrl": "http...c452",
+    "accessToken": "eyJ0...Keow",
+    "refreshToken": "42cc...e03a",
+    "idToken": "eyJ0...tmKw",
+    "tokenResponse": {
+      "access_token": "eyJ0...Keow",
+      "token_type": "[REDACTED]",
+      "expires_in": 1800,
+      "refresh_token": "42cc...e03a",
+      "scope": "openid profile email ga4gh_passport_v1 researcher_role federated_identities_ial2 federated_identities federated_sources source",
+      "id_token": "eyJ0...tmKw",
+      "id_token_type": "urn:...arer",
+      "resource": [
+        "https://stsstg.nih.gov/*"
+      ]
+    },
+    "userInfo": {
+      "sub": "yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738",
+      "name": "VERONICA PERSINGER",
+      "first_name": "VERONICA",
+      "last_name": "PERSINGER",
+      "preferred_username": "ngxms-100005857@id.me",
+      "userid": "ngxms-100005857",
+      "email": "yizhen.chen@essential-soft.com",
+      "company": "ID.me",
+      "source": "ID.me",
+      "federated_identities_ial2": {
+        "default_identity": "ngxms-100005857@id.me",
+        "authenticated_identity": "ngxms-100005857@id.me",
+        "sources": {
+          "id.me": {
+            "identity_username": "ngxms-100005857@id.me",
+            "ial": 2,
+            "identity_sub": "yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738"
+          },
+          "era": {
+            "identity_username": "hoh_pi@era.nih.gov",
+            "ial": 2,
+            "identity_sub": "xCyP98MJaHCw7H7IRSDBzccNEl-cKEJadV6Xgmo8Lw8"
+          }
+        },
+        "identities": {
+          "id.me": {
+            "mail": "yizhen.chen@essential-soft.com",
+            "userid": "ngxms-100005857",
+            "firstname": "VERONICA",
+            "lastname": "PERSINGER"
+          },
+          "era": {
+            "mail": "huu.ho@nih.gov",
+            "userid": "hoh_pi",
+            "firstname": "VERONICA",
+            "lastname": "Ho"
+          }
+        }
+      },
+      "txn": "a0828e84e4632bb7.76f0172de438d777",
+      "passport_jwt_v11": "eyJ0...pMqQ"
+    },
+    "passport": {
+      "claim": [
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5JSC1BVVRILUdMT0JBTC1TSUdOLVNURy0wMk5PVjIxIn0.ew0KInN1YiI6Inl2MnQtejJqaktvc1Q1d20tdkNVSmQzZk1jS3Z1SXBJWTlta2Zsb2k3MzgiLA0KImp0aSI6ImM3NGI0ZGExLTYwOWYtNDM0OS05YTNjLTU4ODhjYTY2N2Y4ZiIsDQoic2NvcGUiOiJvcGVuaWQgZ2E0Z2hfcGFzc3BvcnRfdjEiLA0KInR4biI6ImEwODI4ZTg0ZTQ2MzJiYjcuNzZmMDE3MmRlNDM4ZDc3NyIsDQoiaXNzIjogImh0dHBzOi8vc3Rzc3RnLm5paC5nb3YiLCAKImlhdCI6IDE3ODQ2OTMxNDQsCiJleHAiOiAxNzg0NzM2MzQ0LAoiZ2E0Z2hfcGFzc3BvcnRfdjEiIDogWyJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpTVXpJMU5pSXNJbXRwWkNJNklrNUpTQzFCVlZSSUxVZE1UMEpCVEMxVFNVZE9MVk5VUnkwd01rNVBWakl4SW4wLmV5QWlhWE56SWpvaWFIUjBjSE02THk5emRITnpkR2N1Ym1sb0xtZHZkaUlzSUNKemRXSWlPaUo1ZGpKMExYb3lhbXBMYjNOVU5YZHRMWFpEVlVwa00yWk5ZMHQyZFVsd1NWazViV3RtYkc5cE56TTRJaXdnSW1saGRDSTZJREUzT0RRMk9UTXhORFFzSUNKbGVIQWlPaUF4TnpnME56TTJNelEwTENBaWFuUnBJam9pTjJObE5HUmtPRGd0T1RJek1pMDBZekV5TFRnMU5HTXRZbVJpTXpBelpqaGxOR0ZrSWl3Z0luTmpiM0JsSWpvaWIzQmxibWxrSUdkaE5HZG9YM0JoYzNOd2IzSjBYM1l4SWl3Z0luUjRiaUk2SW1Fd09ESTRaVGcwWlRRMk16SmlZamN1TnpabU1ERTNNbVJsTkRNNFpEYzNOeUlzSUNKbllUUm5hRjkyYVhOaFgzWXhJanA3SUNBZ0luUjVjR1VpT2lKTWFXNXJaV1JKWkdWdWRHbDBhV1Z6SWl3Z0lDQWlZWE56WlhKMFpXUWlPaUF4TnpnME5qa3pNVFEwTENBZ0lDSjJZV3gxWlNJNklubDJNblF0ZWpKcWFrdHZjMVExZDIwdGRrTlZTbVF6WmsxalMzWjFTWEJKV1RsdGEyWnNiMmszTXpnc2FIUjBjSE02THk5emRITnpkR2N1Ym1sb0xtZHZkanQ0UTNsUU9UaE5TbUZJUTNjM1NEZEpVbE5FUW5walkwNUZiQzFqUzBWS1lXUldObGhuYlc4NFRIYzRMR2gwZEhCek9pOHZjM1J6YzNSbkxtNXBhQzVuYjNZaUxDQWdJQ0p6YjNWeVkyVWlPaUpvZEhSd2N6b3ZMM04wYzNOMFp5NXVhV2d1WjI5Mklpd2dJQ0FpWW5raU9pSnVhV2d1WjI5MklpQjlmUS5pZ2ZVTGs5YmdqQ3NqU2wzVUpSb0tkYTBuWGIxcnFrdTVrUWpueXBMdmY5ZTY5ZFJ1cXlrTUFJeVpwN3V2cG9xZkFuQ0dkZWVVOEs5X2FfUUs5Tnhuc0V3V2VrWkduNGFWVjNZYm45eV9FUWZLb0pWWHlDaXE0empOTnNqS212elNqN1IyM0lMZ09HUW9YYkNsQ2NONkFlSy1QMmRvSzgwbUtKMkdoQ1VvQ1pyaWd6YzlXVVdwVjVnSTN2SFZ5Qi1pYkU2UXJsQ2QyUU5OSUJyTFFXSHhkQVBMY1NuYmhWc0x6aTBHTkdZR2t4NWVCVmtFQmx4YTg2QlNNZ1NDWktYeXJvRy1iUTRFYVl4dngyc3VlUGMtbXk3aTFiZHV1b3NBZFJfVXhPRUR4dFFSUWtqcGVTR19NQjZBTmN6NnRwdTBKcjFSRUQyV1R2UC1fSE9oTm9lZXciLCJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpTVXpJMU5pSXNJbXRwWkNJNklrNUpTQzFCVlZSSUxVZE1UMEpCVEMxVFNVZE9MVk5VUnkwd01rNVBWakl4SW4wLmV3MEtJQ0FpYVhOeklqb2dJbWgwZEhCek9pOHZjM1J6YzNSbkxtNXBhQzVuYjNZaUxBMEtJQ0FpYzNWaUlqb2dJbmwyTW5RdGVqSnFha3R2YzFRMWQyMHRka05WU21RelprMWpTM1oxU1hCSldUbHRhMlpzYjJrM016Z2lMQ0FOQ2lBZ0ltbGhkQ0k2SURFM09EUTJPVE14TkRRc0RRb2dJQ0psZUhBaU9pQXhOemcwTnpNMk16UTBMQTBLSUNBaWMyTnZjR1VpT2lBaWIzQmxibWxrSUdkaE5HZG9YM0JoYzNOd2IzSjBYM1l4SWl3TkNpQWdJbXAwYVNJNklDSTBabUZpTldReE5DMWtZVFUwTFRRd1pqTXRZbVl5Tnkwd01UVTRNek5sTlRabE9USWlMQTBLSUNBaWRIaHVJam9nSW1Fd09ESTRaVGcwWlRRMk16SmlZamN1TnpabU1ERTNNbVJsTkRNNFpEYzNOeUlzRFFvZ0lDSm5ZVFJuYUY5MmFYTmhYM1l4SWpvZ2V5QU5DaUFnSUNBZ0luUjVjR1VpT2lBaWFIUjBjSE02THk5eVlYTXVibWxvTG1kdmRpOTJhWE5oY3k5Mk1TNHhJaXdnRFFvZ0lDQWdJQ0poYzNObGNuUmxaQ0k2SURFM09EUTJPVE14TkRRc0RRb2dJQ0FnSUNKMllXeDFaU0k2SUNKb2RIUndjem92TDNOMGMzTjBaeTV1YVdndVoyOTJMM0JoYzNOd2IzSjBMMlJpWjJGd0wzWXhMakVpTEEwS0lDQWdJQ0FpYzI5MWNtTmxJam9nSW1oMGRIQnpPaTh2Ym1OaWFTNXViRzB1Ym1sb0xtZHZkaTluWVhBaUxBMEtJQ0FnSUNBaVlua2lPaUFpWkdGakluMHNEUW9nSUNBZ0lDSnlZWE5mWkdKbllYQmZjR1Z5YldsemMybHZibk1pT2lCYkRRb2dJQ0FnSUNBZ0lDQjdJbU52Ym5ObGJuUmZibUZ0WlNJNklrWmhhMlVnUTI5c2JHVmpkR2x2YmlBeElpd2ljR2h6WDJsa0lqb2ljR2h6TURBd01EQXdJaXdpZG1WeWMybHZiaUk2SW5Zd0lpd2ljR0Z5ZEdsamFYQmhiblJmYzJWMElqb2ljRElpTENKamIyNXpaVzUwWDJkeWIzVndJam9pWXpFaUxDSnliMnhsSWpvaVpHVnphV2R1WVhSbFpDQjFjMlZ5SWl3aVpYaHdhWEpoZEdsdmJpSTZNVGd3TXpnMU9USXdNSDBzZXlKamIyNXpaVzUwWDI1aGJXVWlPaUpWYm5KbGMzUnlhV04wWldRaUxDSndhSE5mYVdRaU9pSndhSE13TURBM01UQWlMQ0oyWlhKemFXOXVJam9pZGpFaUxDSndZWEowYVdOcGNHRnVkRjl6WlhRaU9pSndNU0lzSW1OdmJuTmxiblJmWjNKdmRYQWlPaUpqT1RraUxDSnliMnhsSWpvaWNHa2lMQ0psZUhCcGNtRjBhVzl1SWpveE9ERTJNakV4T0RFd2ZTeDdJbU52Ym5ObGJuUmZibUZ0WlNJNklrZGxibVZ5WVd3Z1VtVnpaV0Z5WTJnZ1ZYTmxJaXdpY0doelgybGtJam9pY0doek1EQXlOREE1SWl3aWRtVnljMmx2YmlJNkluWXhJaXdpY0dGeWRHbGphWEJoYm5SZmMyVjBJam9pY0RFaUxDSmpiMjV6Wlc1MFgyZHliM1Z3SWpvaVl6RWlMQ0p5YjJ4bElqb2laR1Z6YVdkdVlYUmxaQ0IxYzJWeUlpd2laWGh3YVhKaGRHbHZiaUk2TVRnd016ZzFPVEl3TUgwc2V5SmpiMjV6Wlc1MFgyNWhiV1VpT2lKSFpXNWxjbUZzSUZKbGMyVmhjbU5vSUZWelpTSXNJbkJvYzE5cFpDSTZJbkJvY3pBd01qUXhNQ0lzSW5abGNuTnBiMjRpT2lKMk1TSXNJbkJoY25ScFkybHdZVzUwWDNObGRDSTZJbkF4SWl3aVkyOXVjMlZ1ZEY5bmNtOTFjQ0k2SW1NeElpd2ljbTlzWlNJNkltUmxjMmxuYm1GMFpXUWdkWE5sY2lJc0ltVjRjR2x5WVhScGIyNGlPakU0TURNNE5Ua3lNREI5TEhzaVkyOXVjMlZ1ZEY5dVlXMWxJam9pUjJWdVpYSmhiQ0JTWlhObFlYSmphQ0JWYzJVZ0tFNVFWU2tpTENKd2FITmZhV1FpT2lKd2FITXdNREkwTVRBaUxDSjJaWEp6YVc5dUlqb2lkakVpTENKd1lYSjBhV05wY0dGdWRGOXpaWFFpT2lKd01TSXNJbU52Ym5ObGJuUmZaM0p2ZFhBaU9pSmpNaUlzSW5KdmJHVWlPaUprWlhOcFoyNWhkR1ZrSUhWelpYSWlMQ0psZUhCcGNtRjBhVzl1SWpveE9EQXpPRFU1TWpBd2ZTeDdJbU52Ym5ObGJuUmZibUZ0WlNJNklraGxZV3gwYUM5TlpXUnBZMkZzTDBKcGIyMWxaR2xqWVd3aUxDSndhSE5mYVdRaU9pSndhSE13TURJME1UQWlMQ0oyWlhKemFXOXVJam9pZGpFaUxDSndZWEowYVdOcGNHRnVkRjl6WlhRaU9pSndNU0lzSW1OdmJuTmxiblJmWjNKdmRYQWlPaUpqTXlJc0luSnZiR1VpT2lKa1pYTnBaMjVoZEdWa0lIVnpaWElpTENKbGVIQnBjbUYwYVc5dUlqb3hPREF6T0RVNU1qQXdmUTBLSUNBZ0lDQmRJQTBLZlEuZ3N4eXVDOHh1aTktYXZnQkFZbG8wQlBxMExxS2F1UGt6a3plU05wTmUxc2g3Wlk0SWFZb1pHa19JNFJBSG1FcUNnd2lDa0dNLWpWazM1dUlSMDFKUll1YXFMemZVaTlyQkZPVEp4QXF2STBiamVkVlg5V3pJZVZFWU13Y25qVWU2Qm04MGVqOWJmOXFNaWR3NTVKTHQ4eVpsSWRZYmdaWXNkbEtGekU2Y1BldWo5QXI3MFdxcElGcl9WZ2hUMkZINlNKRGFGeUI3bnR5d1lwbW5oVm1mdTItcEUwR1lKT3p6dkRzYjhZbnNWQmRnZFd5V2VsMVFrMklid19NS1Vwb05XYURnMDZBWUUxWnhKY0NUNlRJdk5IamFLdV9tSmFoczE2OEdIVFRuUURwOUJYZjhobVZqSnVZelVnOVVKWjU1N0NoeXNTWGJJTy1hZHVId21nWVBnIl0NCn0.Lr8SsVOONKPXNufbTZpBm9-1FEsXuZeV_X20q5FRSBfXut1HOBf9Hwbk1XMQBQTXiCISjtDsGoKLNsiRVb3mI2LVAGD0uwrM7xdI-7pD3Kz13qwcEUXByj070GU4gWfseiLkqWaHi1ADbS9OgeOkuEjbqptm_2jxZxVfi8BszgvIGXjqqdvO2Dclkqpe3o5dcbTX27LYAC7AKWWB8UIrFTKhklwAulF_d7NmPKytlYixQwEsXXPSDMhulhQZPQ-NrgZqu9ZsQLo0ly3ASo9mf8LD2_1zH8PPxQ4-cPgq2aKV-tN2z5NsJ3iyzRNccXnwBo1vJS76okH5-4GgTXpMqQ"
+      ],
+      "passportTokens": [
+        "eyJ0...pMqQ"
+      ],
+      "decoded": [
+        {
+          "header": {
+            "typ": "JWT",
+            "alg": "RS256",
+            "kid": "NIH-AUTH-GLOBAL-SIGN-STG-02NOV21"
+          },
+          "payload": {
+            "sub": "yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738",
+            "jti": "c74b4da1-609f-4349-9a3c-5888ca667f8f",
+            "scope": "openid ga4gh_passport_v1",
+            "txn": "a0828e84e4632bb7.76f0172de438d777",
+            "iss": "https://stsstg.nih.gov",
+            "iat": 1784693144,
+            "exp": 1784736344,
+            "ga4gh_passport_v1": [
+              "eyJ0...oeew",
+              "eyJ0...gYPg"
+            ]
+          },
+          "signature": "Lr8SsVOONKPXNufbTZpBm9-1FEsXuZeV_X20q5FRSBfXut1HOBf9Hwbk1XMQBQTXiCISjtDsGoKLNsiRVb3mI2LVAGD0uwrM7xdI-7pD3Kz13qwcEUXByj070GU4gWfseiLkqWaHi1ADbS9OgeOkuEjbqptm_2jxZxVfi8BszgvIGXjqqdvO2Dclkqpe3o5dcbTX27LYAC7AKWWB8UIrFTKhklwAulF_d7NmPKytlYixQwEsXXPSDMhulhQZPQ-NrgZqu9ZsQLo0ly3ASo9mf8LD2_1zH8PPxQ4-cPgq2aKV-tN2z5NsJ3iyzRNccXnwBo1vJS76okH5-4GgTXpMqQ"
+        }
+      ],
+      "visas": [
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5JSC1BVVRILUdMT0JBTC1TSUdOLVNURy0wMk5PVjIxIn0.eyAiaXNzIjoiaHR0cHM6Ly9zdHNzdGcubmloLmdvdiIsICJzdWIiOiJ5djJ0LXoyampLb3NUNXdtLXZDVUpkM2ZNY0t2dUlwSVk5bWtmbG9pNzM4IiwgImlhdCI6IDE3ODQ2OTMxNDQsICJleHAiOiAxNzg0NzM2MzQ0LCAianRpIjoiN2NlNGRkODgtOTIzMi00YzEyLTg1NGMtYmRiMzAzZjhlNGFkIiwgInNjb3BlIjoib3BlbmlkIGdhNGdoX3Bhc3Nwb3J0X3YxIiwgInR4biI6ImEwODI4ZTg0ZTQ2MzJiYjcuNzZmMDE3MmRlNDM4ZDc3NyIsICJnYTRnaF92aXNhX3YxIjp7ICAgInR5cGUiOiJMaW5rZWRJZGVudGl0aWVzIiwgICAiYXNzZXJ0ZWQiOiAxNzg0NjkzMTQ0LCAgICJ2YWx1ZSI6Inl2MnQtejJqaktvc1Q1d20tdkNVSmQzZk1jS3Z1SXBJWTlta2Zsb2k3MzgsaHR0cHM6Ly9zdHNzdGcubmloLmdvdjt4Q3lQOThNSmFIQ3c3SDdJUlNEQnpjY05FbC1jS0VKYWRWNlhnbW84THc4LGh0dHBzOi8vc3Rzc3RnLm5paC5nb3YiLCAgICJzb3VyY2UiOiJodHRwczovL3N0c3N0Zy5uaWguZ292IiwgICAiYnkiOiJuaWguZ292IiB9fQ.igfULk9bgjCsjSl3UJRoKda0nXb1rqku5kQjnypLvf9e69dRuqykMAIyZp7uvpoqfAnCGdeeU8K9_a_QK9NxnsEwWekZGn4aVV3Ybn9y_EQfKoJVXyCiq4zjNNsjKmvzSj7R23ILgOGQoXbClCcN6AeK-P2doK80mKJ2GhCUoCZrigzc9WUWpV5gI3vHVyB-ibE6QrlCd2QNNIBrLQWHxdAPLcSnbhVsLzi0GNGYGkx5eBVkEBlxa86BSMgSCZKXyroG-bQ4EaYxvx2suePc-my7i1bduuosAdR_UxOEDxtQRQkjpeSG_MB6ANcz6tpu0Jr1RED2WTvP-_HOhNoeew",
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5JSC1BVVRILUdMT0JBTC1TSUdOLVNURy0wMk5PVjIxIn0.ew0KICAiaXNzIjogImh0dHBzOi8vc3Rzc3RnLm5paC5nb3YiLA0KICAic3ViIjogInl2MnQtejJqaktvc1Q1d20tdkNVSmQzZk1jS3Z1SXBJWTlta2Zsb2k3MzgiLCANCiAgImlhdCI6IDE3ODQ2OTMxNDQsDQogICJleHAiOiAxNzg0NzM2MzQ0LA0KICAic2NvcGUiOiAib3BlbmlkIGdhNGdoX3Bhc3Nwb3J0X3YxIiwNCiAgImp0aSI6ICI0ZmFiNWQxNC1kYTU0LTQwZjMtYmYyNy0wMTU4MzNlNTZlOTIiLA0KICAidHhuIjogImEwODI4ZTg0ZTQ2MzJiYjcuNzZmMDE3MmRlNDM4ZDc3NyIsDQogICJnYTRnaF92aXNhX3YxIjogeyANCiAgICAgInR5cGUiOiAiaHR0cHM6Ly9yYXMubmloLmdvdi92aXNhcy92MS4xIiwgDQogICAgICJhc3NlcnRlZCI6IDE3ODQ2OTMxNDQsDQogICAgICJ2YWx1ZSI6ICJodHRwczovL3N0c3N0Zy5uaWguZ292L3Bhc3Nwb3J0L2RiZ2FwL3YxLjEiLA0KICAgICAic291cmNlIjogImh0dHBzOi8vbmNiaS5ubG0ubmloLmdvdi9nYXAiLA0KICAgICAiYnkiOiAiZGFjIn0sDQogICAgICJyYXNfZGJnYXBfcGVybWlzc2lvbnMiOiBbDQogICAgICAgICB7ImNvbnNlbnRfbmFtZSI6IkZha2UgQ29sbGVjdGlvbiAxIiwicGhzX2lkIjoicGhzMDAwMDAwIiwidmVyc2lvbiI6InYwIiwicGFydGljaXBhbnRfc2V0IjoicDIiLCJjb25zZW50X2dyb3VwIjoiYzEiLCJyb2xlIjoiZGVzaWduYXRlZCB1c2VyIiwiZXhwaXJhdGlvbiI6MTgwMzg1OTIwMH0seyJjb25zZW50X25hbWUiOiJVbnJlc3RyaWN0ZWQiLCJwaHNfaWQiOiJwaHMwMDA3MTAiLCJ2ZXJzaW9uIjoidjEiLCJwYXJ0aWNpcGFudF9zZXQiOiJwMSIsImNvbnNlbnRfZ3JvdXAiOiJjOTkiLCJyb2xlIjoicGkiLCJleHBpcmF0aW9uIjoxODE2MjExODEwfSx7ImNvbnNlbnRfbmFtZSI6IkdlbmVyYWwgUmVzZWFyY2ggVXNlIiwicGhzX2lkIjoicGhzMDAyNDA5IiwidmVyc2lvbiI6InYxIiwicGFydGljaXBhbnRfc2V0IjoicDEiLCJjb25zZW50X2dyb3VwIjoiYzEiLCJyb2xlIjoiZGVzaWduYXRlZCB1c2VyIiwiZXhwaXJhdGlvbiI6MTgwMzg1OTIwMH0seyJjb25zZW50X25hbWUiOiJHZW5lcmFsIFJlc2VhcmNoIFVzZSIsInBoc19pZCI6InBoczAwMjQxMCIsInZlcnNpb24iOiJ2MSIsInBhcnRpY2lwYW50X3NldCI6InAxIiwiY29uc2VudF9ncm91cCI6ImMxIiwicm9sZSI6ImRlc2lnbmF0ZWQgdXNlciIsImV4cGlyYXRpb24iOjE4MDM4NTkyMDB9LHsiY29uc2VudF9uYW1lIjoiR2VuZXJhbCBSZXNlYXJjaCBVc2UgKE5QVSkiLCJwaHNfaWQiOiJwaHMwMDI0MTAiLCJ2ZXJzaW9uIjoidjEiLCJwYXJ0aWNpcGFudF9zZXQiOiJwMSIsImNvbnNlbnRfZ3JvdXAiOiJjMiIsInJvbGUiOiJkZXNpZ25hdGVkIHVzZXIiLCJleHBpcmF0aW9uIjoxODAzODU5MjAwfSx7ImNvbnNlbnRfbmFtZSI6IkhlYWx0aC9NZWRpY2FsL0Jpb21lZGljYWwiLCJwaHNfaWQiOiJwaHMwMDI0MTAiLCJ2ZXJzaW9uIjoidjEiLCJwYXJ0aWNpcGFudF9zZXQiOiJwMSIsImNvbnNlbnRfZ3JvdXAiOiJjMyIsInJvbGUiOiJkZXNpZ25hdGVkIHVzZXIiLCJleHBpcmF0aW9uIjoxODAzODU5MjAwfQ0KICAgICBdIA0KfQ.gsxyuC8xui9-avgBAYlo0BPq0LqKauPkzkzeSNpNe1sh7ZY4IaYoZGk_I4RAHmEqCgwiCkGM-jVk35uIR01JRYuaqLzfUi9rBFOTJxAqvI0bjedVX9WzIeVEYMwcnjUe6Bm80ej9bf9qMidw55JLt8yZlIdYbgZYsdlKFzE6cPeuj9Ar70WqpIFr_VghT2FH6SJDaFyB7ntywYpmnhVmfu2-pE0GYJOzzvDsb8YnsVBdgdWyWel1Qk2Ibw_MKUpoNWaDg06AYE1ZxJcCT6TIvNHjaKu_mJahs168GHTTnQDp9BXf8hmVjJuYzUg9UJZ557ChysSXbIO-aduHwmgYPg"
+      ]
+    },
+    "drsResponse": {
+      "url": "https://tcga-public-dcf-databucket-gen3.s3.amazonaws.com/test-publicdata?user_id=28309&username=yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738stsstg.nih.gov&client_id=&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYQFL66DADJD5DO5E%2F20260722%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260722T040548Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=907df129fdddf750919a4411b5c1f761eeb75c3740fe1a498aa6efaae5f8803e"
+    },
+    "signedUrl": "https://tcga-public-dcf-databucket-gen3.s3.amazonaws.com/test-publicdata?user_id=28309&username=yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738stsstg.nih.gov&client_id=&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYQFL66DADJD5DO5E%2F20260722%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260722T040548Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=907df129fdddf750919a4411b5c1f761eeb75c3740fe1a498aa6efaae5f8803e"
+  },
+  "records": [
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:04:43.033Z",
+      "message": "Workflow run started",
+      "details": {
+        "testCaseName": "hu_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data",
+        "selectedSteps": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "runDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T04-04-43-032Z",
+        "outputDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T04-04-43-032Z/workflow-logs",
+        "screenshotDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T04-04-43-032Z/screenshots",
+        "settingsFiles": {
+          "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+          "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/hu_linked_id_green_file.env"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:04:43.033Z",
+      "message": "Step 1 started: authorize-login",
+      "details": {
+        "contextKeys": []
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.031Z",
+      "message": "Step 1 finished: authorize-login",
+      "details": {
+        "durationMs": 60998,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.032Z",
+      "message": "Step 2 started: exchange-authorization-code",
+      "details": {
+        "contextKeys": [
+          "authorizationCallbackUrl",
+          "authorizationCode"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.205Z",
+      "message": "API call: exchange authorization code",
+      "details": {
+        "url": "https://stsstg.nih.gov/auth/oauth/v2/token",
+        "method": "POST",
+        "status": 200,
+        "elapsedMs": 172.9406250000029,
+        "responseBody": {
+          "access_token": "eyJ0...Keow",
+          "token_type": "[REDACTED]",
+          "expires_in": 1800,
+          "refresh_token": "42cc...e03a",
+          "scope": "openid profile email ga4gh_passport_v1 researcher_role federated_identities_ial2 federated_identities federated_sources source",
+          "id_token": "eyJ0...tmKw",
+          "id_token_type": "urn:...arer",
+          "resource": [
+            "https://stsstg.nih.gov/*"
+          ]
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.205Z",
+      "message": "Step 2 finished: exchange-authorization-code",
+      "details": {
+        "durationMs": 173,
+        "result": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.205Z",
+      "message": "Step 3 started: userinfo",
+      "details": {
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "refreshToken",
+          "tokenResponse"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.582Z",
+      "message": "API call: userinfo",
+      "details": {
+        "url": "https://stsstg.nih.gov/openid/connect/v1.1/userinfo",
+        "method": "POST",
+        "status": 200,
+        "elapsedMs": 377.122832999994,
+        "responseBody": {
+          "sub": "yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738",
+          "name": "VERONICA PERSINGER",
+          "first_name": "VERONICA",
+          "last_name": "PERSINGER",
+          "preferred_username": "ngxms-100005857@id.me",
+          "userid": "ngxms-100005857",
+          "email": "yizhen.chen@essential-soft.com",
+          "company": "ID.me",
+          "source": "ID.me",
+          "federated_identities_ial2": {
+            "default_identity": "ngxms-100005857@id.me",
+            "authenticated_identity": "ngxms-100005857@id.me",
+            "sources": {
+              "id.me": {
+                "identity_username": "ngxms-100005857@id.me",
+                "ial": 2,
+                "identity_sub": "yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738"
+              },
+              "era": {
+                "identity_username": "hoh_pi@era.nih.gov",
+                "ial": 2,
+                "identity_sub": "xCyP98MJaHCw7H7IRSDBzccNEl-cKEJadV6Xgmo8Lw8"
+              }
+            },
+            "identities": {
+              "id.me": {
+                "mail": "yizhen.chen@essential-soft.com",
+                "userid": "ngxms-100005857",
+                "firstname": "VERONICA",
+                "lastname": "PERSINGER"
+              },
+              "era": {
+                "mail": "huu.ho@nih.gov",
+                "userid": "hoh_pi",
+                "firstname": "VERONICA",
+                "lastname": "Ho"
+              }
+            }
+          },
+          "txn": "a0828e84e4632bb7.76f0172de438d777",
+          "passport_jwt_v11": "eyJ0...pMqQ"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.583Z",
+      "message": "Step 3 finished: userinfo",
+      "details": {
+        "durationMs": 378,
+        "result": {
+          "status": 200,
+          "subject": "yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738",
+          "hasPassportClaim": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.583Z",
+      "message": "Step 4 started: decode-passport",
+      "details": {
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "refreshToken",
+          "tokenResponse",
+          "userInfo"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.590Z",
+      "message": "Step 4 finished: decode-passport",
+      "details": {
+        "durationMs": 7,
+        "result": {
+          "passportTokenCount": 1,
+          "visaCount": 2
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:44.590Z",
+      "message": "Step 6 started: request-drs-access",
+      "details": {
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "passport",
+          "refreshToken",
+          "tokenResponse",
+          "userInfo"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:48.494Z",
+      "message": "API call: DRS access request",
+      "details": {
+        "url": "https://nci-crdc-staging.datacommons.io/ga4gh/drs/v1/objects/dg.4DFC/dbc97b99-bc21-4c55-8b89-84bf7ef9d508/access/s3",
+        "method": "POST",
+        "status": 200,
+        "elapsedMs": 3903.646249999998,
+        "responseBody": {
+          "url": "https://tcga-public-dcf-databucket-gen3.s3.amazonaws.com/test-publicdata?user_id=28309&username=yv2t-z2jjKosT5wm-vCUJd3fMcKvuIpIY9mkfloi738stsstg.nih.gov&client_id=&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYQFL66DADJD5DO5E%2F20260722%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260722T040548Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=907df129fdddf750919a4411b5c1f761eeb75c3740fe1a498aa6efaae5f8803e"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:05:48.495Z",
+      "message": "Step 6 finished: request-drs-access",
+      "details": {
+        "durationMs": 3905,
+        "result": {
+          "status": 200,
+          "hasSignedUrl": true
+        }
+      }
+    }
+  ]
+}

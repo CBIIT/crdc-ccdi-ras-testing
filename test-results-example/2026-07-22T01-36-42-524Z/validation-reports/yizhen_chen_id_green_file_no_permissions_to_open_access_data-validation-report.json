@@ -1,0 +1,108 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.853310Z",
+    "testCaseId": "yizhen_chen_id_green_file_no_permissions_to_open_access_data",
+    "workbookPath": "CTDC/CTDC-Test-Execution.xlsx",
+    "runFolder": "test-results/2026-07-22T01-36-42-524Z",
+    "executionLogPath": "test-results/2026-07-22T01-36-42-524Z/workflow-logs/yizhen_chen_id_green_file_no_permissions_to_open_access_data.json",
+    "executionTextLogPath": "test-results/2026-07-22T01-36-42-524Z/workflow-logs/yizhen_chen_id_green_file_no_permissions_to_open_access_data.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: user can can access Open Access data ,DCF DRS returns HTTP 200 with a valid signed URL\nFail: IAL2 user is issued Visas, denied Open Access data.DCF DRS returns 401/403 or 200 with invalid URL or download fails.",
+    "parsed": {
+      "pass": [
+        "user can can access Open Access data ,DCF DRS returns HTTP 200 with a valid signed URL"
+      ],
+      "fail": [
+        "IAL2 user is issued Visas, denied Open Access data.DCF DRS returns 401/403 or 200 with invalid URL or download fails."
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "PASS",
+    "score": 100,
+    "evidenceCount": 5,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "PASS",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "stepId": 2,
+        "stepName": "exchange-authorization-code",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "stepId": 3,
+        "stepName": "userinfo",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "stepId": 4,
+        "stepName": "decode-passport",
+        "status": "PASS",
+        "evidence": {
+          "passportTokenCount": 1,
+          "visaCount": 2
+        }
+      },
+      {
+        "stepId": 6,
+        "stepName": "request-drs-access",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasSignedUrl": true
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 11,
+      "actualCount": 11,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-36-50_yizhen_chen_id_green_file_no_permissions_to_open_access_data_00-ras-login-page.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-36-53_yizhen_chen_id_green_file_no_permissions_to_open_access_data_00-idme-button-clicked.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-37-03_yizhen_chen_id_green_file_no_permissions_to_open_access_data_01-email-entered.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-37-05_yizhen_chen_id_green_file_no_permissions_to_open_access_data_02-password-page.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-37-08_yizhen_chen_id_green_file_no_permissions_to_open_access_data_03-password-submitted.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-37-09_yizhen_chen_id_green_file_no_permissions_to_open_access_data_04-complete-signin-page.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-37-13_yizhen_chen_id_green_file_no_permissions_to_open_access_data_05-mfa-code-page.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-37-16_yizhen_chen_id_green_file_no_permissions_to_open_access_data_06-mfa-code-submitted.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-37-18_yizhen_chen_id_green_file_no_permissions_to_open_access_data_10-before-authorization.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-37-19_yizhen_chen_id_green_file_no_permissions_to_open_access_data_11-authorization-page.png",
+        "test-results/2026-07-22T01-36-42-524Z/screenshots/2026-07-22T01-37-22_yizhen_chen_id_green_file_no_permissions_to_open_access_data_12-after-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "NOTE: TestName says \"no permissions\" but the literal Validate text describes a positive access-granted Pass condition, which is what occurred (DRS 200, hasSignedUrl=true). Flagging a likely TestName/Validate copy-paste mismatch in the workbook; verdict follows the literal Validate text."
+    ]
+  },
+  "summary": {
+    "caseId": "yizhen.chen_id_green_file",
+    "testName": "no permissions to open access data",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T01-36-42-524Z/workflow-logs/yizhen_chen_id_green_file_no_permissions_to_open_access_data.json",
+      "text_log": "test-results/2026-07-22T01-36-42-524Z/workflow-logs/yizhen_chen_id_green_file_no_permissions_to_open_access_data.log",
+      "screenshots_dir": "test-results/2026-07-22T01-36-42-524Z/screenshots"
+    }
+  }
+}

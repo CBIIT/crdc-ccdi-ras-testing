@@ -1,0 +1,105 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.965906Z",
+    "testCaseId": "miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data",
+    "workbookPath": "CTDC/CTDC-Test-Execution-3.xlsx",
+    "runFolder": "test-results/2026-07-22T04-06-05-423Z",
+    "executionLogPath": "test-results/2026-07-22T04-06-05-423Z/workflow-logs/miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.json",
+    "executionTextLogPath": "test-results/2026-07-22T04-06-05-423Z/workflow-logs/miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: user can access Open Access data ,DCF DRS returns HTTP 200 with a valid signed URL\nFail: IAL2 user is issued Visas, denied Open Access data.DCF DRS returns 401/403 or 200 with invalid URL or download fails.",
+    "parsed": {
+      "pass": [
+        "user can access Open Access data ,DCF DRS returns HTTP 200 with a valid signed URL"
+      ],
+      "fail": [
+        "IAL2 user is issued Visas, denied Open Access data.DCF DRS returns 401/403 or 200 with invalid URL or download fails."
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "PASS",
+    "score": 100,
+    "evidenceCount": 5,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "PASS",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "stepId": 2,
+        "stepName": "exchange-authorization-code",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "stepId": 3,
+        "stepName": "userinfo",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "subject": "xr9BS5ot0rtGH0tCXx9mPU9fOe9CewF-fWfJazdnfY4",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "stepId": 4,
+        "stepName": "decode-passport",
+        "status": "PASS",
+        "evidence": {
+          "passportTokenCount": 1,
+          "visaCount": 2
+        }
+      },
+      {
+        "stepId": 6,
+        "stepName": "request-drs-access",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasSignedUrl": true
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 8,
+      "actualCount": 8,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T04-06-05-423Z/screenshots/2026-07-22T04-06-10_miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_00-ras-login-page.png",
+        "test-results/2026-07-22T04-06-05-423Z/screenshots/2026-07-22T04-06-13_miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_00-logingov-button-clicked.png",
+        "test-results/2026-07-22T04-06-05-423Z/screenshots/2026-07-22T04-06-14_miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_01-email-entered.png",
+        "test-results/2026-07-22T04-06-05-423Z/screenshots/2026-07-22T04-06-15_miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_02-password-page.png",
+        "test-results/2026-07-22T04-06-05-423Z/screenshots/2026-07-22T04-06-20_miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_03-password-submitted.png",
+        "test-results/2026-07-22T04-06-05-423Z/screenshots/2026-07-22T04-06-20_miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_04-mfa-code-page.png",
+        "test-results/2026-07-22T04-06-05-423Z/screenshots/2026-07-22T04-06-55_miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_05-mfa-code-submitted.png",
+        "test-results/2026-07-22T04-06-05-423Z/screenshots/2026-07-22T04-07-07_miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_10-before-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "DRS access request returned HTTP 200 with a valid signed URL. User authenticated via login.gov IDP."
+    ]
+  },
+  "summary": {
+    "caseId": "miller_linked_id_green_file",
+    "testName": "Have a permissions to open access data  or control data",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T04-06-05-423Z/workflow-logs/miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.json",
+      "text_log": "test-results/2026-07-22T04-06-05-423Z/workflow-logs/miller_linked_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.log",
+      "screenshots_dir": "test-results/2026-07-22T04-06-05-423Z/screenshots"
+    }
+  }
+}

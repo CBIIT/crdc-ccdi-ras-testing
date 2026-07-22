@@ -1,0 +1,117 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.904505Z",
+    "testCaseId": "yizhen_chen_id_purple_file_consent_codes",
+    "workbookPath": "CTDC/CTDC-Test-Execution-2.xlsx",
+    "runFolder": "test-results/2026-07-22T03-41-53-042Z",
+    "executionLogPath": "test-results/2026-07-22T03-41-53-042Z/workflow-logs/yizhen_chen_id_purple_file_consent_codes.json",
+    "executionTextLogPath": "test-results/2026-07-22T03-41-53-042Z/workflow-logs/yizhen_chen_id_purple_file_consent_codes.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: User can access only the data with matching, authorized consent codes, match the phs_id with decoded password.\nFail: User can access data with an unauthorized consent code.",
+    "parsed": {
+      "pass": [
+        "User can access only the data with matching, authorized consent codes, match the phs_id with decoded password."
+      ],
+      "fail": [
+        "User can access data with an unauthorized consent code."
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "PARTIAL",
+    "score": 60,
+    "evidenceCount": 6,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "PASS",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "stepId": 2,
+        "stepName": "exchange-authorization-code",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "stepId": 3,
+        "stepName": "userinfo",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "stepId": 4,
+        "stepName": "decode-passport",
+        "status": "PASS",
+        "evidence": {
+          "passportTokenCount": 1,
+          "visaCount": 2
+        }
+      },
+      {
+        "stepId": 12,
+        "stepName": "get-consent-groups",
+        "status": "PASS",
+        "evidence": {
+          "consentGroupCount": 602,
+          "consentGroups": "<602 items omitted>"
+        }
+      },
+      {
+        "stepId": 6,
+        "stepName": "request-drs-access",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasSignedUrl": true
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 11,
+      "actualCount": 11,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-00_yizhen_chen_id_purple_file_consent_codes_00-ras-login-page.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-02_yizhen_chen_id_purple_file_consent_codes_00-idme-button-clicked.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-08_yizhen_chen_id_purple_file_consent_codes_01-email-entered.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-10_yizhen_chen_id_purple_file_consent_codes_02-password-page.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-13_yizhen_chen_id_purple_file_consent_codes_03-password-submitted.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-14_yizhen_chen_id_purple_file_consent_codes_04-complete-signin-page.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-18_yizhen_chen_id_purple_file_consent_codes_05-mfa-code-page.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-21_yizhen_chen_id_purple_file_consent_codes_06-mfa-code-submitted.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-23_yizhen_chen_id_purple_file_consent_codes_10-before-authorization.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-24_yizhen_chen_id_purple_file_consent_codes_11-authorization-page.png",
+        "test-results/2026-07-22T03-41-53-042Z/screenshots/2026-07-22T03-42-26_yizhen_chen_id_purple_file_consent_codes_12-after-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "VALIDATION GAP: consent groups were successfully extracted from the passport (step 12 succeeded), but the DRS access request (step 6) returned the same public/open-access object (tcga-public-dcf-databucket-gen3/test-publicdata) used by non-consent-gated scenarios, and its response never exposes a phs_id/consent_group to cross-check against the extracted consent groups. A technical HTTP 200 does not confirm consent-group-based authorization was actually enforced. Recommend configuring a genuinely consent-gated DRS object for this scenario."
+    ]
+  },
+  "summary": {
+    "caseId": "yizhen.chen_id_purple_file",
+    "testName": "consent codes",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T03-41-53-042Z/workflow-logs/yizhen_chen_id_purple_file_consent_codes.json",
+      "text_log": "test-results/2026-07-22T03-41-53-042Z/workflow-logs/yizhen_chen_id_purple_file_consent_codes.log",
+      "screenshots_dir": "test-results/2026-07-22T03-41-53-042Z/screenshots"
+    }
+  }
+}

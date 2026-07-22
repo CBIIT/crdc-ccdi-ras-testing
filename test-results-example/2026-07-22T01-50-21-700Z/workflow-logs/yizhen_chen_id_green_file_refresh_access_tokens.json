@@ -1,0 +1,451 @@
+{
+  "summary": {
+    "status": "passed",
+    "executedSteps": [
+      {
+        "id": 1,
+        "name": "authorize-login",
+        "durationMs": 38883,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "exchange-authorization-code",
+        "durationMs": 201,
+        "result": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "userinfo",
+        "durationMs": 692,
+        "result": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "id": 8,
+        "name": "refresh-access-token",
+        "durationMs": 93,
+        "result": {
+          "status": 200,
+          "hasAccessToken": true,
+          "rotatedRefreshToken": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "userinfo",
+        "durationMs": 826,
+        "result": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      }
+    ]
+  },
+  "settingsFiles": {
+    "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+    "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/yizhen.chen_id_green_file.env"
+  },
+  "selectedSteps": [
+    1,
+    2,
+    3,
+    8,
+    3
+  ],
+  "exportedAt": "2026-07-22T01:51:02.398Z",
+  "context": {
+    "authorizationCode": "ee28...dda6",
+    "authorizationCallbackUrl": "http...19fa",
+    "accessToken": "eyJ0...-qmA",
+    "refreshToken": "4d56...6d7e",
+    "idToken": "eyJ0...gbtQ",
+    "tokenResponse": {
+      "access_token": "eyJ0...kCFw",
+      "token_type": "[REDACTED]",
+      "expires_in": 1800,
+      "refresh_token": "f716...5cf6",
+      "scope": "openid profile email ga4gh_passport_v1 researcher_role federated_identities_ial2 federated_identities federated_sources source",
+      "id_token": "eyJ0...gbtQ",
+      "id_token_type": "urn:...arer",
+      "resource": [
+        "https://stsstg.nih.gov/*"
+      ]
+    },
+    "userInfo": {
+      "sub": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+      "name": "VERONICA PERSINGER",
+      "first_name": "VERONICA",
+      "last_name": "PERSINGER",
+      "preferred_username": "ngxms-100005464@id.me",
+      "userid": "ngxms-100005464",
+      "email": "jonkiky@gmail.com",
+      "company": "ID.me",
+      "source": "ID.me",
+      "federated_identities_ial2": {
+        "default_identity": "ngxms-100005464@id.me",
+        "authenticated_identity": "ngxms-100005464@id.me",
+        "sources": {
+          "id.me": {
+            "identity_username": "ngxms-100005464@id.me",
+            "ial": 2,
+            "identity_sub": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU"
+          },
+          "era": {
+            "identity_username": "cheny_pi@era.nih.gov",
+            "ial": 2,
+            "identity_sub": "n3hgL68Iug1MbNs3SFOHUrawOChHgIYI-Mn3u3Dv3C4"
+          }
+        },
+        "identities": {
+          "id.me": {
+            "mail": "jonkiky@gmail.com",
+            "userid": "ngxms-100005464",
+            "firstname": "VERONICA",
+            "lastname": "PERSINGER"
+          },
+          "era": {
+            "mail": "yizhen.chen@nih.gov",
+            "userid": "cheny_pi",
+            "firstname": "VERONICA",
+            "lastname": "Yizhen"
+          }
+        }
+      },
+      "txn": "cc5293051a7b2515.b39d3adb8828bf58",
+      "passport_jwt_v11": "eyJ0...KDew"
+    },
+    "refreshResponse": {
+      "access_token": "eyJ0...-qmA",
+      "token_type": "[REDACTED]",
+      "expires_in": 1800,
+      "refresh_token": "4d56...6d7e",
+      "scope": "openid profile email ga4gh_passport_v1 researcher_role federated_identities_ial2 federated_identities federated_sources source",
+      "resource": [
+        "https://stsstg.nih.gov/*"
+      ]
+    }
+  },
+  "records": [
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:50:21.701Z",
+      "message": "Workflow run started",
+      "details": {
+        "testCaseName": "yizhen.chen_id_green_file_refresh_access_tokens",
+        "selectedSteps": [
+          1,
+          2,
+          3,
+          8,
+          3
+        ],
+        "runDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T01-50-21-700Z",
+        "outputDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T01-50-21-700Z/workflow-logs",
+        "screenshotDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T01-50-21-700Z/screenshots",
+        "settingsFiles": {
+          "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+          "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/yizhen.chen_id_green_file.env"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:50:21.701Z",
+      "message": "Step 1 started: authorize-login",
+      "details": {
+        "contextKeys": []
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:00.584Z",
+      "message": "Step 1 finished: authorize-login",
+      "details": {
+        "durationMs": 38883,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:00.584Z",
+      "message": "Step 2 started: exchange-authorization-code",
+      "details": {
+        "contextKeys": [
+          "authorizationCallbackUrl",
+          "authorizationCode"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:00.785Z",
+      "message": "API call: exchange authorization code",
+      "details": {
+        "url": "https://stsstg.nih.gov/auth/oauth/v2/token",
+        "method": "POST",
+        "status": 200,
+        "elapsedMs": 200.80416600000171,
+        "responseBody": {
+          "access_token": "eyJ0...kCFw",
+          "token_type": "[REDACTED]",
+          "expires_in": 1800,
+          "refresh_token": "f716...5cf6",
+          "scope": "openid profile email ga4gh_passport_v1 researcher_role federated_identities_ial2 federated_identities federated_sources source",
+          "id_token": "eyJ0...gbtQ",
+          "id_token_type": "urn:...arer",
+          "resource": [
+            "https://stsstg.nih.gov/*"
+          ]
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:00.785Z",
+      "message": "Step 2 finished: exchange-authorization-code",
+      "details": {
+        "durationMs": 201,
+        "result": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:00.785Z",
+      "message": "Step 3 started: userinfo",
+      "details": {
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "refreshToken",
+          "tokenResponse"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:01.477Z",
+      "message": "API call: userinfo",
+      "details": {
+        "url": "https://stsstg.nih.gov/openid/connect/v1.1/userinfo",
+        "method": "POST",
+        "status": 200,
+        "elapsedMs": 691.4545829999988,
+        "responseBody": {
+          "sub": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "name": "VERONICA PERSINGER",
+          "first_name": "VERONICA",
+          "last_name": "PERSINGER",
+          "preferred_username": "ngxms-100005464@id.me",
+          "userid": "ngxms-100005464",
+          "email": "jonkiky@gmail.com",
+          "company": "ID.me",
+          "source": "ID.me",
+          "federated_identities_ial2": {
+            "default_identity": "ngxms-100005464@id.me",
+            "authenticated_identity": "ngxms-100005464@id.me",
+            "sources": {
+              "id.me": {
+                "identity_username": "ngxms-100005464@id.me",
+                "ial": 2,
+                "identity_sub": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU"
+              },
+              "era": {
+                "identity_username": "cheny_pi@era.nih.gov",
+                "ial": 2,
+                "identity_sub": "n3hgL68Iug1MbNs3SFOHUrawOChHgIYI-Mn3u3Dv3C4"
+              }
+            },
+            "identities": {
+              "id.me": {
+                "mail": "jonkiky@gmail.com",
+                "userid": "ngxms-100005464",
+                "firstname": "VERONICA",
+                "lastname": "PERSINGER"
+              },
+              "era": {
+                "mail": "yizhen.chen@nih.gov",
+                "userid": "cheny_pi",
+                "firstname": "VERONICA",
+                "lastname": "Yizhen"
+              }
+            }
+          },
+          "txn": "79fb43481492a620.b39d3adb8828bf54",
+          "passport_jwt_v11": "eyJ0...uUkg"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:01.477Z",
+      "message": "Step 3 finished: userinfo",
+      "details": {
+        "durationMs": 692,
+        "result": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:01.477Z",
+      "message": "Step 8 started: refresh-access-token",
+      "details": {
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "refreshToken",
+          "tokenResponse",
+          "userInfo"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:01.570Z",
+      "message": "API call: refresh access token",
+      "details": {
+        "url": "https://stsstg.nih.gov/auth/oauth/v2/token",
+        "method": "POST",
+        "status": 200,
+        "elapsedMs": 92.67941599999904,
+        "responseBody": {
+          "access_token": "eyJ0...-qmA",
+          "token_type": "[REDACTED]",
+          "expires_in": 1800,
+          "refresh_token": "4d56...6d7e",
+          "scope": "openid profile email ga4gh_passport_v1 researcher_role federated_identities_ial2 federated_identities federated_sources source",
+          "resource": [
+            "https://stsstg.nih.gov/*"
+          ]
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:01.570Z",
+      "message": "Step 8 finished: refresh-access-token",
+      "details": {
+        "durationMs": 93,
+        "result": {
+          "status": 200,
+          "hasAccessToken": true,
+          "rotatedRefreshToken": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:01.570Z",
+      "message": "Step 3 started: userinfo",
+      "details": {
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "refreshResponse",
+          "refreshToken",
+          "tokenResponse",
+          "userInfo"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:02.396Z",
+      "message": "API call: userinfo",
+      "details": {
+        "url": "https://stsstg.nih.gov/openid/connect/v1.1/userinfo",
+        "method": "POST",
+        "status": 200,
+        "elapsedMs": 825.919541999996,
+        "responseBody": {
+          "sub": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "name": "VERONICA PERSINGER",
+          "first_name": "VERONICA",
+          "last_name": "PERSINGER",
+          "preferred_username": "ngxms-100005464@id.me",
+          "userid": "ngxms-100005464",
+          "email": "jonkiky@gmail.com",
+          "company": "ID.me",
+          "source": "ID.me",
+          "federated_identities_ial2": {
+            "default_identity": "ngxms-100005464@id.me",
+            "authenticated_identity": "ngxms-100005464@id.me",
+            "sources": {
+              "id.me": {
+                "identity_username": "ngxms-100005464@id.me",
+                "ial": 2,
+                "identity_sub": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU"
+              },
+              "era": {
+                "identity_username": "cheny_pi@era.nih.gov",
+                "ial": 2,
+                "identity_sub": "n3hgL68Iug1MbNs3SFOHUrawOChHgIYI-Mn3u3Dv3C4"
+              }
+            },
+            "identities": {
+              "id.me": {
+                "mail": "jonkiky@gmail.com",
+                "userid": "ngxms-100005464",
+                "firstname": "VERONICA",
+                "lastname": "PERSINGER"
+              },
+              "era": {
+                "mail": "yizhen.chen@nih.gov",
+                "userid": "cheny_pi",
+                "firstname": "VERONICA",
+                "lastname": "Yizhen"
+              }
+            }
+          },
+          "txn": "cc5293051a7b2515.b39d3adb8828bf58",
+          "passport_jwt_v11": "eyJ0...KDew"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T01:51:02.396Z",
+      "message": "Step 3 finished: userinfo",
+      "details": {
+        "durationMs": 826,
+        "result": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      }
+    }
+  ]
+}

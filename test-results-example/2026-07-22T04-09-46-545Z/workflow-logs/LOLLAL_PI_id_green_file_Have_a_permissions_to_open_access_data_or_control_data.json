@@ -1,0 +1,385 @@
+{
+  "summary": {
+    "status": "failed",
+    "failedStepCount": 4,
+    "executedSteps": [
+      {
+        "id": 1,
+        "name": "authorize-login",
+        "durationMs": 42180,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "id": 2,
+        "name": "exchange-authorization-code",
+        "durationMs": 177,
+        "result": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "id": 3,
+        "name": "userinfo",
+        "durationMs": 592,
+        "result": {
+          "status": 200,
+          "subject": "TVecLUfo4svAEownns7tbJlXK9jRqDReMdF7wLRSe4w",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "id": 4,
+        "name": "decode-passport",
+        "durationMs": 1,
+        "result": {
+          "passportTokenCount": 1,
+          "visaCount": 1
+        }
+      }
+    ],
+    "error": "DRS access request returned 401: <!doctype html>\n\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>401</title>\n    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>\n  </head>\n\n  <body>\n    <main>\n      <img class=\"error-page__logo\" src=\"/user/static/img/logo.svg\" /"
+  },
+  "settingsFiles": {
+    "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+    "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/LOLLAL_PI_id_green_file.env"
+  },
+  "selectedSteps": [
+    1,
+    2,
+    3,
+    4,
+    6
+  ],
+  "exportedAt": "2026-07-22T04:10:32.662Z",
+  "context": {
+    "authorizationCode": "d7aa...fc09",
+    "authorizationCallbackUrl": "http...2069",
+    "accessToken": "eyJ0...8IBA",
+    "refreshToken": "dc22...5fcd",
+    "idToken": "eyJ0...sPBA",
+    "tokenResponse": {
+      "access_token": "eyJ0...8IBA",
+      "token_type": "[REDACTED]",
+      "expires_in": 1800,
+      "refresh_token": "dc22...5fcd",
+      "scope": "openid profile email ga4gh_passport_v1 researcher_role federated_identities_ial2 federated_identities federated_sources source",
+      "id_token": "eyJ0...sPBA",
+      "id_token_type": "urn:...arer",
+      "resource": [
+        "https://stsstg.nih.gov/*"
+      ]
+    },
+    "userInfo": {
+      "sub": "TVecLUfo4svAEownns7tbJlXK9jRqDReMdF7wLRSe4w",
+      "name": "VERONICA PERSINGER",
+      "first_name": "VERONICA",
+      "last_name": "PERSINGER",
+      "preferred_username": "ngxms-100005774@id.me",
+      "userid": "ngxms-100005774",
+      "email": "fortestingui1@gmail.com",
+      "company": "ID.me",
+      "source": "ID.me",
+      "federated_identities_ial2": {
+        "default_identity": "ngxms-100005774@id.me",
+        "authenticated_identity": "ngxms-100005774@id.me",
+        "sources": {
+          "id.me": {
+            "identity_username": "ngxms-100005774@id.me",
+            "ial": 2,
+            "identity_sub": "TVecLUfo4svAEownns7tbJlXK9jRqDReMdF7wLRSe4w"
+          }
+        },
+        "identities": {
+          "id.me": {
+            "mail": "fortestingui1@gmail.com",
+            "userid": "ngxms-100005774",
+            "firstname": "VERONICA",
+            "lastname": "PERSINGER"
+          }
+        }
+      },
+      "txn": "411ceac615216a49.76f0172de438d7b9",
+      "passport_jwt_v11": "eyJ0...PIRg"
+    },
+    "passport": {
+      "claim": [
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5JSC1BVVRILUdMT0JBTC1TSUdOLVNURy0wMk5PVjIxIn0.ew0KInN1YiI6IlRWZWNMVWZvNHN2QUVvd25uczd0YkpsWEs5alJxRFJlTWRGN3dMUlNlNHciLA0KImp0aSI6IjUwMGZmMDhjLTA4ZDItNDI1ZS04ZmM0LTEzOGNmNjUyOWRmNSIsDQoic2NvcGUiOiJvcGVuaWQgZ2E0Z2hfcGFzc3BvcnRfdjEiLA0KInR4biI6IjQxMWNlYWM2MTUyMTZhNDkuNzZmMDE3MmRlNDM4ZDdiOSIsDQoiaXNzIjogImh0dHBzOi8vc3Rzc3RnLm5paC5nb3YiLCAKImlhdCI6IDE3ODQ2OTM0MjksCiJleHAiOiAxNzg0NzM2NjI5LAoiZ2E0Z2hfcGFzc3BvcnRfdjEiIDogWyJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpTVXpJMU5pSXNJbXRwWkNJNklrNUpTQzFCVlZSSUxVZE1UMEpCVEMxVFNVZE9MVk5VUnkwd01rNVBWakl4SW4wLmV3MEtJQ0FpYVhOeklqb2dJbWgwZEhCek9pOHZjM1J6YzNSbkxtNXBhQzVuYjNZaUxBMEtJQ0FpYzNWaUlqb2dJbFJXWldOTVZXWnZOSE4yUVVWdmQyNXVjemQwWWtwc1dFczVhbEp4UkZKbFRXUkdOM2RNVWxObE5IY2lMQ0FOQ2lBZ0ltbGhkQ0k2SURFM09EUTJPVE0wTWprc0RRb2dJQ0psZUhBaU9pQXhOemcwTnpNMk5qSTVMQTBLSUNBaWMyTnZjR1VpT2lBaWIzQmxibWxrSUdkaE5HZG9YM0JoYzNOd2IzSjBYM1l4SWl3TkNpQWdJbXAwYVNJNklDSXlNMlk1T0dRM01pMWpORE13TFRSbE1UZ3RZVEU1TmkwNVkySXpORFUzWm1KaFpHUWlMQTBLSUNBaWRIaHVJam9nSWpReE1XTmxZV00yTVRVeU1UWmhORGt1TnpabU1ERTNNbVJsTkRNNFpEZGlPU0lzRFFvZ0lDSm5ZVFJuYUY5MmFYTmhYM1l4SWpvZ2V5QU5DaUFnSUNBZ0luUjVjR1VpT2lBaWFIUjBjSE02THk5eVlYTXVibWxvTG1kdmRpOTJhWE5oY3k5Mk1TNHhJaXdnRFFvZ0lDQWdJQ0poYzNObGNuUmxaQ0k2SURFM09EUTJPVE0wTWprc0RRb2dJQ0FnSUNKMllXeDFaU0k2SUNKb2RIUndjem92TDNOMGMzTjBaeTV1YVdndVoyOTJMM0JoYzNOd2IzSjBMMlJpWjJGd0wzWXhMakVpTEEwS0lDQWdJQ0FpYzI5MWNtTmxJam9nSW1oMGRIQnpPaTh2Ym1OaWFTNXViRzB1Ym1sb0xtZHZkaTluWVhBaUxBMEtJQ0FnSUNBaVlua2lPaUFpWkdGakluMHNEUW9nSUNBZ0lDSnlZWE5mWkdKbllYQmZjR1Z5YldsemMybHZibk1pT2lCYkRRb2dJQ0FnSUNBZ0lDQU5DaUFnSUNBZ1hTQU5DbjAuY2JIdC1rMHFlck1EWmc4RGJNdTRseDE4VF8xU2RUN1pndHVmeElHeGRidkZhSGxwRjc0eFVmd2RkTDVMSkNXWTJpQVRFRVlscndIY3pGSDgyMFl2djhsWHlBQ21OQ3o3OU5OelRKcWl2MmVBOFZLWXVlVV9tRW5Ka1h2LUQ1TGZsZlB5TmkwUjNJVzJNcU5ZM0Zwc0MtcTB5REZldTlsV3AtVHl1VlcxTDhROWp6V2NTSlU2MTFoSFRxQlR0RExmNF9zTXVQTTU4VGdoR2NXXzNRcTE1dkEtc21HOUVDQ0ItelptMlhybGdNT2lxaW4tNFpYV0hMZ3hBSWMyM0RlS0xkU1NWMzg3SWhXb0dNSkRpQWZwMVNMUXN4eWR6aE5Jb05mMWRoNlgwemZQRkZKb2dIRWd3UktVN25DN3dKUEtpSHlTeW5XdVlWcV8zUWVMZHE1RUhBIl0NCn0.k_Lo7uBLX4hg9eJHELNVDcithGuaov3P0rnMx8SnNljLbv3Q0FAiPrQ3t-Kc5c1eW8PVsgc4ZAbbZImNyyaEXG6hZIutDll5Y6b821QOth-QlxFz24UkFcGu0Cv1S4crsH9Do6EGy4PZzbK0Phz-VLDNHHWwcGJ5W4jc09RrELw2h1MXChOa6Kkm5GjvMNukBv4APrsqaHGOHgZ0FJNzXIOMLLNmYLCijH1P1qKhkS79M_vvqEn6sVJP5_hI8Pd2OsYKB_w0fAxPisBGFC9LR3K85eeebX1pLhRHvi10Z4Sm6e_cN9pHR57V8DboJN65A0nueqKEkh914DHcxDPIRg"
+      ],
+      "passportTokens": [
+        "eyJ0...PIRg"
+      ],
+      "decoded": [
+        {
+          "header": {
+            "typ": "JWT",
+            "alg": "RS256",
+            "kid": "NIH-AUTH-GLOBAL-SIGN-STG-02NOV21"
+          },
+          "payload": {
+            "sub": "TVecLUfo4svAEownns7tbJlXK9jRqDReMdF7wLRSe4w",
+            "jti": "500ff08c-08d2-425e-8fc4-138cf6529df5",
+            "scope": "openid ga4gh_passport_v1",
+            "txn": "411ceac615216a49.76f0172de438d7b9",
+            "iss": "https://stsstg.nih.gov",
+            "iat": 1784693429,
+            "exp": 1784736629,
+            "ga4gh_passport_v1": [
+              "eyJ0...5EHA"
+            ]
+          },
+          "signature": "k_Lo7uBLX4hg9eJHELNVDcithGuaov3P0rnMx8SnNljLbv3Q0FAiPrQ3t-Kc5c1eW8PVsgc4ZAbbZImNyyaEXG6hZIutDll5Y6b821QOth-QlxFz24UkFcGu0Cv1S4crsH9Do6EGy4PZzbK0Phz-VLDNHHWwcGJ5W4jc09RrELw2h1MXChOa6Kkm5GjvMNukBv4APrsqaHGOHgZ0FJNzXIOMLLNmYLCijH1P1qKhkS79M_vvqEn6sVJP5_hI8Pd2OsYKB_w0fAxPisBGFC9LR3K85eeebX1pLhRHvi10Z4Sm6e_cN9pHR57V8DboJN65A0nueqKEkh914DHcxDPIRg"
+        }
+      ],
+      "visas": [
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5JSC1BVVRILUdMT0JBTC1TSUdOLVNURy0wMk5PVjIxIn0.ew0KICAiaXNzIjogImh0dHBzOi8vc3Rzc3RnLm5paC5nb3YiLA0KICAic3ViIjogIlRWZWNMVWZvNHN2QUVvd25uczd0YkpsWEs5alJxRFJlTWRGN3dMUlNlNHciLCANCiAgImlhdCI6IDE3ODQ2OTM0MjksDQogICJleHAiOiAxNzg0NzM2NjI5LA0KICAic2NvcGUiOiAib3BlbmlkIGdhNGdoX3Bhc3Nwb3J0X3YxIiwNCiAgImp0aSI6ICIyM2Y5OGQ3Mi1jNDMwLTRlMTgtYTE5Ni05Y2IzNDU3ZmJhZGQiLA0KICAidHhuIjogIjQxMWNlYWM2MTUyMTZhNDkuNzZmMDE3MmRlNDM4ZDdiOSIsDQogICJnYTRnaF92aXNhX3YxIjogeyANCiAgICAgInR5cGUiOiAiaHR0cHM6Ly9yYXMubmloLmdvdi92aXNhcy92MS4xIiwgDQogICAgICJhc3NlcnRlZCI6IDE3ODQ2OTM0MjksDQogICAgICJ2YWx1ZSI6ICJodHRwczovL3N0c3N0Zy5uaWguZ292L3Bhc3Nwb3J0L2RiZ2FwL3YxLjEiLA0KICAgICAic291cmNlIjogImh0dHBzOi8vbmNiaS5ubG0ubmloLmdvdi9nYXAiLA0KICAgICAiYnkiOiAiZGFjIn0sDQogICAgICJyYXNfZGJnYXBfcGVybWlzc2lvbnMiOiBbDQogICAgICAgICANCiAgICAgXSANCn0.cbHt-k0qerMDZg8DbMu4lx18T_1SdT7ZgtufxIGxdbvFaHlpF74xUfwddL5LJCWY2iATEEYlrwHczFH820Yvv8lXyACmNCz79NNzTJqiv2eA8VKYueU_mEnJkXv-D5LflfPyNi0R3IW2MqNY3FpsC-q0yDFeu9lWp-TyuVW1L8Q9jzWcSJU611hHTqBTtDLf4_sMuPM58TghGcW_3Qq15vA-smG9ECCB-zZm2XrlgMOiqin-4ZXWHLgxAIc23DeKLdSSV387IhWoGMJDiAfp1SLQsxydzhNIoNf1dh6X0zfPFFJogHEgwRKU7nC7wJPKiHySynWuYVq_3QeLdq5EHA"
+      ]
+    }
+  },
+  "records": [
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:09:46.547Z",
+      "message": "Workflow run started",
+      "details": {
+        "testCaseName": "LOLLAL_PI_id_green_file_Have_a_permissions_to_open_access_data_or_control_data",
+        "selectedSteps": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "runDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T04-09-46-545Z",
+        "outputDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T04-09-46-545Z/workflow-logs",
+        "screenshotDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T04-09-46-545Z/screenshots",
+        "settingsFiles": {
+          "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+          "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/LOLLAL_PI_id_green_file.env"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:09:46.547Z",
+      "message": "Step 1 started: authorize-login",
+      "details": {
+        "contextKeys": []
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:28.727Z",
+      "message": "Step 1 finished: authorize-login",
+      "details": {
+        "durationMs": 42180,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:28.727Z",
+      "message": "Step 2 started: exchange-authorization-code",
+      "details": {
+        "contextKeys": [
+          "authorizationCallbackUrl",
+          "authorizationCode"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:28.904Z",
+      "message": "API call: exchange authorization code",
+      "details": {
+        "url": "https://stsstg.nih.gov/auth/oauth/v2/token",
+        "method": "POST",
+        "status": 200,
+        "elapsedMs": 176.84058399999776,
+        "responseBody": {
+          "access_token": "eyJ0...8IBA",
+          "token_type": "[REDACTED]",
+          "expires_in": 1800,
+          "refresh_token": "dc22...5fcd",
+          "scope": "openid profile email ga4gh_passport_v1 researcher_role federated_identities_ial2 federated_identities federated_sources source",
+          "id_token": "eyJ0...sPBA",
+          "id_token_type": "urn:...arer",
+          "resource": [
+            "https://stsstg.nih.gov/*"
+          ]
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:28.904Z",
+      "message": "Step 2 finished: exchange-authorization-code",
+      "details": {
+        "durationMs": 177,
+        "result": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:28.904Z",
+      "message": "Step 3 started: userinfo",
+      "details": {
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "refreshToken",
+          "tokenResponse"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:29.496Z",
+      "message": "API call: userinfo",
+      "details": {
+        "url": "https://stsstg.nih.gov/openid/connect/v1.1/userinfo",
+        "method": "POST",
+        "status": 200,
+        "elapsedMs": 591.9099999999962,
+        "responseBody": {
+          "sub": "TVecLUfo4svAEownns7tbJlXK9jRqDReMdF7wLRSe4w",
+          "name": "VERONICA PERSINGER",
+          "first_name": "VERONICA",
+          "last_name": "PERSINGER",
+          "preferred_username": "ngxms-100005774@id.me",
+          "userid": "ngxms-100005774",
+          "email": "fortestingui1@gmail.com",
+          "company": "ID.me",
+          "source": "ID.me",
+          "federated_identities_ial2": {
+            "default_identity": "ngxms-100005774@id.me",
+            "authenticated_identity": "ngxms-100005774@id.me",
+            "sources": {
+              "id.me": {
+                "identity_username": "ngxms-100005774@id.me",
+                "ial": 2,
+                "identity_sub": "TVecLUfo4svAEownns7tbJlXK9jRqDReMdF7wLRSe4w"
+              }
+            },
+            "identities": {
+              "id.me": {
+                "mail": "fortestingui1@gmail.com",
+                "userid": "ngxms-100005774",
+                "firstname": "VERONICA",
+                "lastname": "PERSINGER"
+              }
+            }
+          },
+          "txn": "411ceac615216a49.76f0172de438d7b9",
+          "passport_jwt_v11": "eyJ0...PIRg"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:29.496Z",
+      "message": "Step 3 finished: userinfo",
+      "details": {
+        "durationMs": 592,
+        "result": {
+          "status": 200,
+          "subject": "TVecLUfo4svAEownns7tbJlXK9jRqDReMdF7wLRSe4w",
+          "hasPassportClaim": true
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:29.496Z",
+      "message": "Step 4 started: decode-passport",
+      "details": {
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "refreshToken",
+          "tokenResponse",
+          "userInfo"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:29.497Z",
+      "message": "Step 4 finished: decode-passport",
+      "details": {
+        "durationMs": 1,
+        "result": {
+          "passportTokenCount": 1,
+          "visaCount": 1
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:29.497Z",
+      "message": "Step 6 started: request-drs-access",
+      "details": {
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "passport",
+          "refreshToken",
+          "tokenResponse",
+          "userInfo"
+        ]
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T04:10:32.660Z",
+      "message": "API call: DRS access request",
+      "details": {
+        "url": "https://nci-crdc-staging.datacommons.io/ga4gh/drs/v1/objects/dg.4DFC/dbc97b99-bc21-4c55-8b89-84bf7ef9d508/access/s3",
+        "method": "POST",
+        "status": 401,
+        "elapsedMs": 3162.6967499999955,
+        "responseBody": "<!doctype html>\n\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>401</title>\n    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>\n  </head>\n\n  <body>\n    <main>\n      <img class=\"error-page__logo\" src=\"/user/static/img/logo.svg\" />\n      <div class=\"error-page\">\n        <div class=\"error-page__banner\">\n          <h1>Data Commons Framework Services</h1>\n        </div>\n        <div class=\"error-page__status-code\">\n          <div class=\"error-page__status-code-text\">\n            <h1>401</h1>\n            <h2>Unauthorized</h2>\n          </div>\n          <img class=\"error-page__picture\" src=\"/user/static/img/404.svg\" />\n        </div>\n        <div class=\"error-page__information\">\n          <p class=\"body\">Error Identifier:</p>\n          <p class=\"introduction\">59d7f8fd-54ef-43d2-9b3b-6d716decd006</p>\n          \n          <p class=\"body\">Error Message:</p>\n          <p class=\"introduction\">Either you weren&#39;t authenticated successfully or you don&#39;t have read-storage permission on authorization resource: [&#39;/programs/phs000000.c1&#39;].</p>\n          \n          <div>\n            \n            <p class=\"body\">Please try again! If you continue to experience this issue, contact <a href=\"mailto:dcf-support@datacommons.io\">dcf-support@datacommons.io</a></p>\n            \n          </div>\n        </div>\n      </div>\n    </main>\n  </body>\n  <style type=\"text/css\">\n\n  .body {\n    font-size: 16px;\n    color: #9b9b9b;\n    margin: 0;\n  }\n\n  .introduction {\n    font-size: 18px;\n    font-weight: 500;\n    line-height: 18px;\n    letter-spacing: .03rem;\n    color: #000000;\n    display: inline-block;\n    margin: 13px 0 13px 0;\n  }\n\n  .auth-data-logo {\n    width: 314px;\n    height: 116px;\n    display: block;\n    margin: auto;\n    margin-bottom: 15px;\n  }\n\n  body {\n    margin: 30px 30px;\n    background-color: #F5F5F5;\n    font-family: 'Source Sans Pro', sans-serif;\n  }\n\n  .error-page {\n    width: 100%;\n    display: flex;\n    flex-flow: column;\n    justify-content: center;\n    background-color: white;\n    border: 1px solid #9b9b9b;\n    border-radius: 8px;\n  }\n\n  .error-page__logo {\n    width: 100%;\n    display: flex;\n    margin-bottom: 15px;\n    max-height: 116px;\n    justify-content: center;\n  }\n\n  .error-page__banner {\n    min-height: 70px;\n    background-color: #3283C8;\n    text-align: center;\n    color: white;\n    border-radius: 8px 8px 0 0;\n    font-weight: lighter;\n  }\n\n  .error-page__status-code {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin: 60px 0 25px 0;\n    text-align: center;\n    background-color: white;\n  }\n\n  .error-page__status-code-text {\n    display: flex;\n    flex-flow: column;\n    margin-right: 20px;\n  }\n\n  .error-page__status-code-text h1 {\n    font-size: 155px;\n    font-weight: lighter;\n    margin: 0;\n    line-height: 1em;\n  }\n\n  .error-page__status-code-text h2 {\n    margin: 0;\n  }\n\n  .error-page__picture {\n    height: 186px;\n    margin-left: 20px;\n  }\n\n  .error-page__information {\n    margin: 0 30px 60px 30px;\n    border: 1px solid #9b9b9b;\n    border-radius: 4px;\n    background-color: #f5f5f5;\n    padding: 20px 20px;\n  }\n\n  .error-page__information a {\n    color: #3283C8;\n    text-decoration: none;\n  }\n\n  </style>\n</html>"
+      }
+    },
+    {
+      "level": "error",
+      "timestamp": "2026-07-22T04:10:32.661Z",
+      "message": "Workflow run failed",
+      "details": {
+        "message": "DRS access request returned 401: <!doctype html>\n\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>401</title>\n    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>\n  </head>\n\n  <body>\n    <main>\n      <img class=\"error-page__logo\" src=\"/user/static/img/logo.svg\" /",
+        "stack": "AssertionError [ERR_ASSERTION]: DRS access request returned 401: <!doctype html>\n\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <title>401</title>\n    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>\n  </head>\n\n  <body>\n    <main>\n      <img class=\"error-page__logo\" src=\"/user/static/img/logo.svg\" /\n    at assertSuccess (file:///Users/cheny39/Documents/RAS-Testing/lib/ras-test-helpers.mjs:176:10)\n    at Object.stepRequestDrsAccess [as run] (file:///Users/cheny39/Documents/RAS-Testing/ras-workflows/steps.mjs:428:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async main (file:///Users/cheny39/Documents/RAS-Testing/ras-workflows/index.mjs:61:22)",
+        "contextKeys": [
+          "accessToken",
+          "authorizationCallbackUrl",
+          "authorizationCode",
+          "idToken",
+          "passport",
+          "refreshToken",
+          "tokenResponse",
+          "userInfo"
+        ]
+      }
+    }
+  ]
+}

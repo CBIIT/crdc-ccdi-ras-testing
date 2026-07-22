@@ -1,0 +1,70 @@
+{
+  "summary": {
+    "status": "passed",
+    "executedSteps": [
+      {
+        "id": 1,
+        "name": "authorize-login",
+        "durationMs": 50255,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      }
+    ]
+  },
+  "settingsFiles": {
+    "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+    "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/yizhen.nolinked.id.env"
+  },
+  "selectedSteps": [
+    1
+  ],
+  "exportedAt": "2026-07-22T03:40:44.746Z",
+  "context": {
+    "authorizationCode": "f9b5...3d50",
+    "authorizationCallbackUrl": "http...1f48"
+  },
+  "records": [
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T03:39:54.490Z",
+      "message": "Workflow run started",
+      "details": {
+        "testCaseName": "yizhen.nolinked.id_Users_without_a_linked_eRA",
+        "selectedSteps": [
+          1
+        ],
+        "runDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T03-39-54-489Z",
+        "outputDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T03-39-54-489Z/workflow-logs",
+        "screenshotDir": "/Users/cheny39/Documents/RAS-Testing/test-results/2026-07-22T03-39-54-489Z/screenshots",
+        "settingsFiles": {
+          "system": "/Users/cheny39/Documents/RAS-Testing/CTDC/system.env",
+          "user": "/Users/cheny39/Documents/RAS-Testing/CTDC/yizhen.nolinked.id.env"
+        }
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T03:39:54.490Z",
+      "message": "Step 1 started: authorize-login",
+      "details": {
+        "contextKeys": []
+      }
+    },
+    {
+      "level": "info",
+      "timestamp": "2026-07-22T03:40:44.745Z",
+      "message": "Step 1 finished: authorize-login",
+      "details": {
+        "durationMs": 50255,
+        "result": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      }
+    }
+  ]
+}

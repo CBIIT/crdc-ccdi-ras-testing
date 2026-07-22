@@ -1,0 +1,69 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.891396Z",
+    "testCaseId": "yizhen_nolinked_id_Users_without_a_linked_eRA",
+    "workbookPath": "CTDC/CTDC-Test-Execution-2.xlsx",
+    "runFolder": "test-results/2026-07-22T03-39-54-489Z",
+    "executionLogPath": "test-results/2026-07-22T03-39-54-489Z/workflow-logs/yizhen_nolinked_id_Users_without_a_linked_eRA.json",
+    "executionTextLogPath": "test-results/2026-07-22T03-39-54-489Z/workflow-logs/yizhen_nolinked_id_Users_without_a_linked_eRA.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: User is prompted to link eRA Page\n\nFail: User is not prompted to link accounts or authentication completes without linkage",
+    "parsed": {
+      "pass": [
+        "User is prompted to link eRA Page"
+      ],
+      "fail": [
+        "User is not prompted to link accounts or authentication completes without linkage"
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "FAIL",
+    "score": 0,
+    "evidenceCount": 1,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "FAIL",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 11,
+      "actualCount": 11,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-03_yizhen_nolinked_id_Users_without_a_linked_eRA_00-ras-login-page.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-05_yizhen_nolinked_id_Users_without_a_linked_eRA_00-idme-button-clicked.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-20_yizhen_nolinked_id_Users_without_a_linked_eRA_01-email-entered.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-23_yizhen_nolinked_id_Users_without_a_linked_eRA_02-password-page.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-26_yizhen_nolinked_id_Users_without_a_linked_eRA_03-password-submitted.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-27_yizhen_nolinked_id_Users_without_a_linked_eRA_04-complete-signin-page.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-31_yizhen_nolinked_id_Users_without_a_linked_eRA_05-mfa-code-page.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-33_yizhen_nolinked_id_Users_without_a_linked_eRA_06-mfa-code-submitted.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-35_yizhen_nolinked_id_Users_without_a_linked_eRA_10-before-authorization.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-36_yizhen_nolinked_id_Users_without_a_linked_eRA_11-authorization-page.png",
+        "test-results/2026-07-22T03-39-54-489Z/screenshots/2026-07-22T03-40-39_yizhen_nolinked_id_Users_without_a_linked_eRA_12-after-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "Same finding as the equivalent row in CTDC-Test-Execution.xlsx: screenshots show the standard id.me consent screen then a direct successful callback (capturedCode=true) - no eRA linking prompt appeared."
+    ]
+  },
+  "summary": {
+    "caseId": "yizhen.nolinked.id",
+    "testName": "Users without a linked eRA",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T03-39-54-489Z/workflow-logs/yizhen_nolinked_id_Users_without_a_linked_eRA.json",
+      "text_log": "test-results/2026-07-22T03-39-54-489Z/workflow-logs/yizhen_nolinked_id_Users_without_a_linked_eRA.log",
+      "screenshots_dir": "test-results/2026-07-22T03-39-54-489Z/screenshots"
+    }
+  }
+}

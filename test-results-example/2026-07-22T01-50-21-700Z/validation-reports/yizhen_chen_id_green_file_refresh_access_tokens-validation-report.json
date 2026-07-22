@@ -1,0 +1,110 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.864091Z",
+    "testCaseId": "yizhen_chen_id_green_file_refresh_access_tokens",
+    "workbookPath": "CTDC/CTDC-Test-Execution.xlsx",
+    "runFolder": "test-results/2026-07-22T01-50-21-700Z",
+    "executionLogPath": "test-results/2026-07-22T01-50-21-700Z/workflow-logs/yizhen_chen_id_green_file_refresh_access_tokens.json",
+    "executionTextLogPath": "test-results/2026-07-22T01-50-21-700Z/workflow-logs/yizhen_chen_id_green_file_refresh_access_tokens.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: New access token is issued using the refresh token and userinfo can be retrieved successfully.\nFail: Refresh token is rejected or new access token cannot be used.",
+    "parsed": {
+      "pass": [
+        "New access token is issued using the refresh token and userinfo can be retrieved successfully."
+      ],
+      "fail": [
+        "Refresh token is rejected or new access token cannot be used."
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "PASS",
+    "score": 100,
+    "evidenceCount": 5,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "PASS",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "stepId": 2,
+        "stepName": "exchange-authorization-code",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "stepId": 3,
+        "stepName": "userinfo",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "stepId": 8,
+        "stepName": "refresh-access-token",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasAccessToken": true,
+          "rotatedRefreshToken": true
+        }
+      },
+      {
+        "stepId": 3,
+        "stepName": "userinfo",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "subject": "KJz6Lqlsn0mNWHxsOZMTjpw8IfCcoQY2ibI2VyiZuXU",
+          "hasPassportClaim": true
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 11,
+      "actualCount": 11,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-26_yizhen_chen_id_green_file_refresh_access_tokens_00-ras-login-page.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-28_yizhen_chen_id_green_file_refresh_access_tokens_00-idme-button-clicked.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-35_yizhen_chen_id_green_file_refresh_access_tokens_01-email-entered.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-38_yizhen_chen_id_green_file_refresh_access_tokens_02-password-page.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-41_yizhen_chen_id_green_file_refresh_access_tokens_03-password-submitted.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-42_yizhen_chen_id_green_file_refresh_access_tokens_04-complete-signin-page.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-45_yizhen_chen_id_green_file_refresh_access_tokens_05-mfa-code-page.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-49_yizhen_chen_id_green_file_refresh_access_tokens_06-mfa-code-submitted.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-51_yizhen_chen_id_green_file_refresh_access_tokens_10-before-authorization.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-52_yizhen_chen_id_green_file_refresh_access_tokens_11-authorization-page.png",
+        "test-results/2026-07-22T01-50-21-700Z/screenshots/2026-07-22T01-50-54_yizhen_chen_id_green_file_refresh_access_tokens_12-after-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "refresh-access-token returned a new access token + rotated refresh token (HTTP 200); the new token was then used to successfully retrieve userinfo again."
+    ]
+  },
+  "summary": {
+    "caseId": "yizhen.chen_id_green_file",
+    "testName": "refresh access tokens",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T01-50-21-700Z/workflow-logs/yizhen_chen_id_green_file_refresh_access_tokens.json",
+      "text_log": "test-results/2026-07-22T01-50-21-700Z/workflow-logs/yizhen_chen_id_green_file_refresh_access_tokens.log",
+      "screenshots_dir": "test-results/2026-07-22T01-50-21-700Z/screenshots"
+    }
+  }
+}

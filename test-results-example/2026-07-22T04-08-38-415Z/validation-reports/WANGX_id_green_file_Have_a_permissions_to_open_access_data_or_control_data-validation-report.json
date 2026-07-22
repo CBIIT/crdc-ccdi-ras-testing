@@ -1,0 +1,108 @@
+{
+  "reportMetadata": {
+    "generatedAt": "2026-07-22T04:35:13.980123Z",
+    "testCaseId": "WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data",
+    "workbookPath": "CTDC/CTDC-Test-Execution-3.xlsx",
+    "runFolder": "test-results/2026-07-22T04-08-38-415Z",
+    "executionLogPath": "test-results/2026-07-22T04-08-38-415Z/workflow-logs/WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.json",
+    "executionTextLogPath": "test-results/2026-07-22T04-08-38-415Z/workflow-logs/WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.log"
+  },
+  "validationCriteria": {
+    "raw": "Pass: user can access Open Access data ,DCF DRS returns HTTP 200 with a valid signed URL\nFail: IAL2 user is issued Visas, denied Open Access data.DCF DRS returns 401/403 or 200 with invalid URL or download fails.",
+    "parsed": {
+      "pass": [
+        "user can access Open Access data ,DCF DRS returns HTTP 200 with a valid signed URL"
+      ],
+      "fail": [
+        "IAL2 user is issued Visas, denied Open Access data.DCF DRS returns 401/403 or 200 with invalid URL or download fails."
+      ]
+    }
+  },
+  "validationResults": {
+    "verdict": "PASS",
+    "score": 100,
+    "evidenceCount": 5,
+    "stepValidations": [
+      {
+        "stepId": 1,
+        "stepName": "authorize-login",
+        "status": "PASS",
+        "evidence": {
+          "callbackOrigin": "https://clinical-dev.datacommons.cancer.gov",
+          "callbackPath": "/api/auth/callback",
+          "capturedCode": true
+        }
+      },
+      {
+        "stepId": 2,
+        "stepName": "exchange-authorization-code",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasAccessToken": true,
+          "hasRefreshToken": true,
+          "hasIdToken": true
+        }
+      },
+      {
+        "stepId": 3,
+        "stepName": "userinfo",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "subject": "QdDSn-fBV24RVycR_n93rwRwX432zC7UjlQysRvk91w",
+          "hasPassportClaim": true
+        }
+      },
+      {
+        "stepId": 4,
+        "stepName": "decode-passport",
+        "status": "PASS",
+        "evidence": {
+          "passportTokenCount": 1,
+          "visaCount": 2
+        }
+      },
+      {
+        "stepId": 6,
+        "stepName": "request-drs-access",
+        "status": "PASS",
+        "evidence": {
+          "status": 200,
+          "hasSignedUrl": true
+        }
+      }
+    ],
+    "screenshotValidation": {
+      "expectedCount": 11,
+      "actualCount": 11,
+      "status": "PASS",
+      "files": [
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-08-41_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_00-ras-login-page.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-08-44_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_00-idme-button-clicked.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-08-47_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_01-email-entered.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-08-50_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_02-password-page.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-08-53_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_03-password-submitted.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-08-54_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_04-complete-signin-page.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-08-57_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_05-mfa-code-page.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-09-00_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_06-mfa-code-submitted.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-09-02_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_10-before-authorization.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-09-03_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_11-authorization-page.png",
+        "test-results/2026-07-22T04-08-38-415Z/screenshots/2026-07-22T04-09-06_WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data_12-after-authorization.png"
+      ]
+    },
+    "validationNotes": [
+      "DRS access request returned HTTP 200 with a valid signed URL."
+    ]
+  },
+  "summary": {
+    "caseId": "WANGX_id_green_file",
+    "testName": "Have a permissions to open access data  or control data",
+    "executionTime": null,
+    "artifactPaths": {
+      "execution_log": "test-results/2026-07-22T04-08-38-415Z/workflow-logs/WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.json",
+      "text_log": "test-results/2026-07-22T04-08-38-415Z/workflow-logs/WANGX_id_green_file_Have_a_permissions_to_open_access_data_or_control_data.log",
+      "screenshots_dir": "test-results/2026-07-22T04-08-38-415Z/screenshots"
+    }
+  }
+}
